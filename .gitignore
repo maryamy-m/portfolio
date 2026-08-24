@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.env*.local
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+
+# Original Google Stitch export — design reference, kept local only
+stitch_gtm_strategy_sales_portfolio
