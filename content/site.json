@@ -1,10 +1,10 @@
 {
   "_readme": "EDIT THIS FILE ONLY. Every piece of text, every number, every link on the site comes from here. Nothing else needs touching. Images live in /public/images — swap the file, keep the name. After editing run `npm run dev` to preview or push to deploy.",
   "identity": {
-    "name": "[YOUR NAME]",
-    "siteUrl": "https://example.com",
-    "shortName": "[YOUR NAME]",
-    "role": "GTM · Sales · Partnerships · Operations",
+    "name": "Maryam Begzada",
+    "siteUrl": "https://portfolio-maryamyy2024-6820.vercel.app",
+    "shortName": "Maryam",
+    "role": "GTM · Strategy · Operations · Partnerships",
     "volume": "Portfolio · Vol. 01 · 2026",
     "location": "Vancouver, BC",
     "locationCode": "LOC: YVR // LAT 49.2827 // LNG -123.1207",
