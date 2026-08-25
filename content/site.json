@@ -207,30 +207,30 @@
       "items": [
         {
           "tag": "Principle_01",
-          "title": "Editorial Clarity",
-          "body": "Distilling complex information into digestible, highly structured narratives. Every element must serve a precise communicative goal."
+          "title": "Seek the hard problem.",
+          "body": "The harder and more ambiguous the problem, the more it pulls me in. That's where fun is for me."
         },
         {
           "tag": "Principle_02",
-          "title": "Structural Integrity",
-          "body": "Building robust foundations first. Layouts and systems that scale effortlessly without losing their architectural precision."
+          "title": "Don't settle.",
+          "body": "I don't believe in \"good enough.\" I always push for exceptional outcomes."
         },
         {
           "tag": "Principle_03",
-          "title": "Restrained Motion",
-          "body": "Motion should guide the eye, not distract it. Prioritizing subtle, meaningful transitions over flamboyant animations."
+          "title": "Know when to ask.",
+          "body": "When I hit a knowledge wall, I find the person who's already past it."
         },
         {
           "tag": "Principle_04",
-          "title": "Active Whitespace",
-          "body": "Treating emptiness as a functional design element. Generous margins create breathing room and elevate the content within."
+          "title": "Connect with purpose.",
+          "body": "I build networks that turn into problem-solving power."
         }
       ]
     },
     "wild": {
       "label": "02 / Me in the Wild",
-      "title": "UBC Brand Campaign",
-      "body": "Led the casting and production of the university's top-performing promotional campaign, and appeared in it. A rare moment of being in front of the lens instead of behind the logistics.",
+      "title": "Sauder School of Business Brand Campaign",
+      "body": "Led the casting and production of the university's top-performing promotional campaign. I modeled in it too!",
       "image": "/images/home-keynote.jpg",
       "imageAlt": "UBC brand campaign",
       "_note": "PLACEHOLDER image — needs a real still from the UBC campaign."
@@ -262,7 +262,7 @@
     "education": {
       "label": "04 / Education",
       "degree": "B.A. Political Science & Commerce",
-      "school": "UBC Vancouver",
+      "school": "The university of british columbia (UBC)",
       "focusLabel": "Focus Areas",
       "focus": [
         "Venture Designs",
@@ -276,7 +276,7 @@
         },
         {
           "icon": "emoji_events",
-          "label": "6 competitive prestigious awards"
+          "label": "6 competitive awards"
         }
       ]
     }
