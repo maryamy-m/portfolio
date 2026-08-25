@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { site } from '@/lib/site'
 import Metrics from '@/components/Metrics'
 import CaseGrid from '@/components/CaseGrid'
+import HeroFrame from '@/components/HeroFrame'
 
 const { hero, metrics, selectedWork } = site.home
 
@@ -44,6 +45,7 @@ export default function HomePage() {
           </div>
 
           <div className="lg:col-span-5 lg:col-start-8 relative order-1 lg:order-2 mt-stack-gap lg:mt-0">
+            <HeroFrame />
             <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-container-high">
               <Image
                 src={hero.image}
