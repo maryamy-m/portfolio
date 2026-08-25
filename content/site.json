@@ -289,7 +289,7 @@
     "hero": {
       "eyebrow": "Connect",
       "headline": "Let's build and solve problems.",
-      "body": "Open to full-time roles and strategic advisory. Focusing on structure, clarity, and highly polished digital execution."
+      "body": "Open to full-time roles and strategic advisory."
     },
     "aside": [
       {
@@ -304,8 +304,8 @@
       },
       {
         "label": "Base",
-        "value": "Vancouver, BC",
-        "sub": "Pacific Time"
+        "value": "SAN FRANCISCO, CA",
+        "sub": "Pacific Daylight Time"
       },
       {
         "label": "Status",
