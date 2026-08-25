@@ -41,6 +41,85 @@ convention — she edits that file directly and expects never to open a `.tsx` t
 The owner edits `site.json` concurrently while Claude is working. **Always re-read it immediately
 before editing** — a stale read will make Edit fail or silently clobber her changes.
 
+### The inline editor writes site.json too
+
+`site.json` is now edited from two directions: by hand, and through an in-page editor the owner
+signs into on the live site. Both converge on the same file, so the "re-read before editing" rule
+above matters more, not less — a published edit lands as a normal commit on `main`.
+
+The pieces:
+
+- [`components/cms/Ed.tsx`](components/cms/Ed.tsx) renders one string and stamps its JSON path
+  into the HTML as `data-cms`. **Text that isn't rendered through `<Ed>` isn't editable in the
+  browser** — when you add copy to a page, reach for `<Ed as="h2" p="about.wild.title" />` rather
+  than `{wild.title}`. `Ed` reads the value from the path itself, so the two can't drift; a path
+  that doesn't resolve to a string or number throws during `next build`.
+- [`components/cms/EdImage.tsx`](components/cms/EdImage.tsx) is the image equivalent, and **every
+  `<Image>` on the site goes through it** — including the header logo and avatar, which used to be
+  hardcoded and are now `identity.logo` / `identity.avatar`. It puts `data-cms-image` on the
+  underlying `<img>` rather than a wrapper: these are `fill`-positioned inside containers the
+  layout depends on, so an extra element would move things.
+- [`components/cms/Editor.tsx`](components/cms/Editor.tsx) is the overlay — contentEditable
+  bindings, the publish bar, image upload, and the Raw JSON panel. Styled with inline styles and
+  one injected stylesheet on purpose, so editor chrome never depends on the design tokens and adds
+  nothing to the CSS visitors download.
+- [`components/cms/EditorMount.tsx`](components/cms/EditorMount.tsx) gates it on a non-httpOnly
+  hint cookie, so a visitor makes no request and loads no editor code. The bundle is a separate
+  chunk; verify with `grep -rl cms-bar .next/static/chunks/` after a build — it must not appear in
+  the shared chunks or in `app/layout-*.js`.
+- [`lib/cms.ts`](lib/cms.ts) applies changes. It can only overwrite a path that **already holds a
+  string or a number**, and writes back the type it found, so the editor can't add keys, change
+  types or reshape arrays. `serialize()` reproduces the file byte-for-byte apart from the trailing
+  newline — the owner's hand formatting survives a publish.
+- [`lib/cms-github.ts`](lib/cms-github.ts) commits. Text saves go through the contents API with the
+  blob SHA so a concurrent edit 409s. `commitFiles()` uses the git data API (blob, tree, commit,
+  ref) because an image upload must write the picture **and** its JSON path in one commit — two
+  sequential writes would mean two rebuilds and a window where the JSON names a file that isn't
+  there. Don't regress that. **With no `GITHUB_TOKEN` both write local disk** — the `npm run dev`
+  path.
+- `app/api/cms/*` are the only Dynamic (`ƒ`) routes in the build. That is expected. The four
+  content pages must stay `○ (Static)` and `/[cmsPath]` `● (SSG)`; nothing in the editor may make a
+  page read cookies at render time, which is exactly why the mount gate is client-side.
+
+### The editor's URL is a secret, and must stay one
+
+There is no `/edit`. The sign-in page is `app/[cmsPath]/page.tsx`, whose `generateStaticParams`
+prerenders exactly the one segment named by the `CMS_PATH` env var; `dynamicParams = false` 404s
+everything else. So the address never enters the repo, which is public.
+
+Things that would break this, none of which are currently done:
+
+- **Never list the path in `app/robots.ts`.** Disallowing it publishes it. The page carries a
+  `noindex` meta tag instead.
+- Never add it to `app/sitemap.ts`, or link to it from any page.
+- Never return it from `/api/cms/session` or any other unauthenticated endpoint. The only place it
+  is handed out is the `cms_hint` cookie, set on a browser that has *just* authenticated, which is
+  how a lapsed session can offer a link back.
+
+Env vars are documented in [`.env.example`](.env.example). With none set the editor is inert: no
+sign-in page is generated at all.
+
+Two paths deliberately aren't inline-editable: `contact.aside` rows resolved through `valueFrom`
+(the visible text comes from `identity`, paired with an href — editing one without the other
+desyncs the link), and anything that is neither rendered text nor a picture (hrefs, SEO metadata,
+alt text, icon names). Those go through the Raw JSON panel.
+
+Constraints worth keeping on uploads:
+
+- They land under a **new content-hashed filename** (`portrait-a1b2c3d4.jpg`), never overwriting.
+  `next/image` URLs key off the source path, so overwriting in place would keep serving the cached
+  old picture. `stemOf()` strips a previous hash so repeated replacements don't grow the name.
+- Format is decided by **sniffing magic bytes**, not the browser's declared MIME type.
+- Only a field that already holds an `/images/…` path can be retargeted.
+- 3 MB decoded cap; serverless request bodies top out at 4.5 MB and base64 adds a third.
+  `prepareImage()` downscales to 2400px client-side and re-encodes PNG to **WebP** so transparency
+  survives.
+- On success the editor clears `srcset` before swapping `src` — `next/image` renders a srcset that
+  would otherwise win over the optimistic preview.
+
+**Never run `npm run build` while `npm run dev` is running.** They share `.next`, and the build
+pulls the directory out from under the dev server, which then 500s until restarted.
+
 ### Icons are a subsetted font — two places must agree
 
 Icons are Material Symbols, named as strings in `site.json` (`"icon": "groups"`). `ICON_FONT_HREF`

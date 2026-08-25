@@ -1,10 +1,11 @@
-import Image from 'next/image'
 import type { Metadata } from 'next'
 import { site } from '@/lib/site'
 import Metrics from '@/components/Metrics'
 import CaseGrid from '@/components/CaseGrid'
+import Ed from '@/components/cms/Ed'
+import EdImage from '@/components/cms/EdImage'
 
-const { hero, metrics, sectionLabel, meta } = site.work
+const { hero, metrics, meta } = site.work
 
 export const metadata: Metadata = {
   title: meta.title,
@@ -19,9 +20,9 @@ export default function WorkPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
           <div className="lg:col-span-5 relative order-1">
             <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-container-high">
-              <Image
-                src={hero.image}
-                alt={hero.imageAlt}
+              <EdImage
+                p="work.hero.image"
+                altPath="work.hero.imageAlt"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 40vw"
@@ -35,13 +36,18 @@ export default function WorkPage() {
           </div>
 
           <div className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center order-2 mt-stack-gap lg:mt-0">
-            <h1 className="text-[40px] lg:text-[56px] font-display-lg text-primary text-balance font-bold leading-[1.1] mb-8">
-              {hero.headline}
-            </h1>
-            {hero.body.map((para) => (
-              <p key={para} className="font-body-lg text-body-lg text-on-surface-variant mb-6 last:mb-0">
-                {para}
-              </p>
+            <Ed
+              as="h1"
+              p="work.hero.headline"
+              className="text-[40px] lg:text-[56px] font-display-lg text-primary text-balance font-bold leading-[1.1] mb-8"
+            />
+            {hero.body.map((para, i) => (
+              <Ed
+                key={para}
+                as="p"
+                p={`work.hero.body.${i}`}
+                className="font-body-lg text-body-lg text-on-surface-variant mb-6 last:mb-0"
+              />
             ))}
           </div>
         </div>
@@ -50,16 +56,17 @@ export default function WorkPage() {
       {/* Metrics */}
       <section className="w-full py-stack-gap relative overflow-hidden">
         <div className="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop relative z-10">
-          <Metrics items={metrics} />
+          <Metrics items={metrics} path="work.metrics" />
         </div>
       </section>
 
       {/* Case grid */}
       <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pt-8 pb-stack-gap">
         <div className="flex items-center gap-6 mb-10">
-          <span className="font-headline-md text-primary uppercase tracking-widest text-[28px] lg:text-[36px]">
-            {sectionLabel}
-          </span>
+          <Ed
+            p="work.sectionLabel"
+            className="font-headline-md text-primary uppercase tracking-widest text-[28px] lg:text-[36px]"
+          />
           <span className="flex-grow h-px bg-outline-variant/50" aria-hidden="true" />
         </div>
         <CaseGrid />

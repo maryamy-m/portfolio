@@ -1,5 +1,5 @@
 {
-  "_readme": "EDIT THIS FILE ONLY. Every piece of text, every number, every link on the site comes from here. Nothing else needs touching. Images live in /public/images — swap the file, keep the name. After editing run `npm run dev` to preview or push to deploy.",
+  "_readme": "Every piece of text, every number, every link on the site comes from here. Nothing else needs touching. You can edit all of it without opening this file: sign in at the editor URL (kept in the CMS_PATH environment variable) and click any text or picture on the live site. Pictures can also be replaced by dropping a new file in /public/images and pointing the path here at it. After editing run `npm run dev` to preview, or push to deploy.",
   "identity": {
     "name": "Maryam Begzada",
     "siteUrl": "https://portfolio-maryamyy2024-6820.vercel.app",
@@ -14,6 +14,8 @@
     "linkedin": "https://www.linkedin.com/in/profile",
     "linkedinLabel": "LinkedIn /in/profile",
     "resumeUrl": "/resume.pdf",
+    "logo": "/images/logo.jpg",
+    "avatar": "/images/portrait.jpg",
     "availability": "Full-time & Advisory",
     "responseTime": "Within 24 hours"
   },

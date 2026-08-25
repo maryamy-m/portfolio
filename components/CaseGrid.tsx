@@ -1,10 +1,14 @@
 'use client'
 
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { site } from '@/lib/site'
+import Ed from '@/components/cms/Ed'
+import EdImage from '@/components/cms/EdImage'
 
 const { cases } = site.home.selectedWork
+
+/** Base address of `cases` in content/site.json, for the inline editor. */
+const BASE = 'home.selectedWork.cases'
 
 /** Tailwind needs literal class names, so bento widths map through a lookup. */
 const SPAN: Record<string, string> = {
@@ -14,7 +18,8 @@ const SPAN: Record<string, string> = {
 
 export default function CaseGrid() {
   const [openId, setOpenId] = useState<string | null>(null)
-  const active = cases.find((c) => c.id === openId)
+  const activeIndex = cases.findIndex((c) => c.id === openId)
+  const active = activeIndex === -1 ? null : cases[activeIndex]
 
   useEffect(() => {
     if (!openId) return
@@ -26,16 +31,16 @@ export default function CaseGrid() {
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-gutter auto-rows-[280px] lg:auto-rows-[320px]">
-        {cases.map((item) => (
+        {cases.map((item, i) => (
           <button
             key={item.id}
             type="button"
             onClick={() => setOpenId(item.id)}
             className={`${SPAN[item.span] ?? SPAN.narrow} text-left rounded-lg overflow-hidden flex flex-col justify-end p-8 group relative focus:outline-none focus-visible:ring-2 focus-visible:ring-primary`}
           >
-            <Image
-              src={item.image}
-              alt={item.imageAlt}
+            <EdImage
+              p={`${BASE}.${i}.image`}
+              altPath={`${BASE}.${i}.imageAlt`}
               fill
               sizes="(max-width: 1024px) 100vw, 66vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -45,13 +50,16 @@ export default function CaseGrid() {
               aria-hidden="true"
             />
             <div className="relative z-10 transition-transform duration-300 group-hover:-translate-y-2">
-              <h3 className="font-headline-md text-[24px] lg:text-[28px] text-white font-bold text-balance leading-tight">
-                {item.title}
-              </h3>
+              <Ed
+                as="h3"
+                p={`${BASE}.${i}.title`}
+                className="font-headline-md text-[24px] lg:text-[28px] text-white font-bold text-balance leading-tight"
+              />
               <div className="flex items-center justify-between mt-4 gap-4">
-                <span className="font-label-mono text-label-mono text-gray-300 uppercase font-bold">
-                  {item.category}
-                </span>
+                <Ed
+                  p={`${BASE}.${i}.category`}
+                  className="font-label-mono text-label-mono text-gray-300 uppercase font-bold"
+                />
                 <span className="msym text-white transition-transform group-hover:translate-x-1">arrow_forward</span>
               </div>
             </div>
@@ -76,8 +84,16 @@ export default function CaseGrid() {
             >
               <span className="msym">close</span>
             </button>
-            <h3 className="font-headline-md text-headline-md text-primary mb-4 pr-10">{active.title}</h3>
-            <p className="font-body-lg text-body-lg text-on-surface-variant">{active.detail}</p>
+            <Ed
+              as="h3"
+              p={`${BASE}.${activeIndex}.title`}
+              className="font-headline-md text-headline-md text-primary mb-4 pr-10"
+            />
+            <Ed
+              as="p"
+              p={`${BASE}.${activeIndex}.detail`}
+              className="font-body-lg text-body-lg text-on-surface-variant"
+            />
           </div>
         </div>
       )}

@@ -27,6 +27,65 @@ or links.
 npm run dev      # http://localhost:3000, reloads as you edit
 ```
 
+### Editing on the live site
+
+You can also edit the site from the site itself, without opening this file or touching git.
+
+1. Go to **your editor URL** and sign in. There is no `/edit` or `/admin` — the sign-in page lives
+   at a long random path stored in the `CMS_PATH` environment variable, so it can't be found by
+   guessing. Look it up in `.env.local` locally, or in Vercel → Settings → Environment Variables
+   for the live site.
+2. You land back on the homepage with a bar along the bottom. Every piece of text is now
+   click-to-edit — click it, type over it, press `Enter` or click away.
+3. Navigate between pages and keep editing; unpublished changes are held until you publish.
+4. Hit **Publish** (or `⌘S`). The bar tracks the rebuild and tells you when it's live.
+
+While edit mode is on, clicking text edits it instead of following the link. **`⌘`-click** to
+navigate normally, or flip the toggle at the left of the bar from *Editing* to *Browsing*.
+
+**Pictures work the same way.** In edit mode every replaceable picture picks up a dashed outline —
+click one, choose a photo, and it uploads. Big photos are shrunk in the browser first (down to
+2400px, JPEG or WebP), so a photo straight off your phone is fine. Each upload lands under a new
+filename, so no browser or CDN can keep showing the old picture, and the one it replaced stays in
+git history rather than being destroyed.
+
+Nine pictures are replaceable this way: both hero portraits, the four case cards, the About
+"Me in the Wild" still, the header logo and the header avatar.
+
+**What Publish actually does:** it writes your changes into `content/site.json` — and, for a
+picture, the new file into `public/images/` — and commits to GitHub. The commit is what makes
+Vercel rebuild, so the live site updates about a minute later. The file stays the single source of
+truth: editing it by hand and editing it through the browser are the same thing, and every change
+through the editor is an ordinary commit you can read, diff or revert.
+
+Inline editing reaches every visible piece of text and every picture. For everything else — links,
+SEO titles and descriptions, image alt text, and adding, removing or reordering items like case
+studies, metrics or timeline entries — use the **Raw JSON** button in the bar, which opens the
+whole file with live validation. Case-study detail text lives in the card modals: `⌘`-click a card
+to open one, then edit it there.
+
+#### Turning it on
+
+The editor is off until it has credentials, and stays off for everyone who isn't signed in — a
+visitor never even downloads it. Copy [`.env.example`](.env.example) to `.env.local` for local
+use, and set the same variables in Vercel → Settings → Environment Variables for the live site.
+
+| Variable | What it's for |
+|---|---|
+| `CMS_PATH` | The secret URL the sign-in page lives at. `openssl rand -hex 16` |
+| `CMS_PASSWORD` | The password for it. Make it long. |
+| `CMS_SECRET` | Signs the session cookie. `openssl rand -base64 32` |
+| `GITHUB_TOKEN` | Lets Publish commit. Fine-grained token, this repo only, **Contents: Read and write** |
+| `GITHUB_REPO` / `GITHUB_BRANCH` | Defaults to `maryamy-m/portfolio` and `main` |
+
+With no `GITHUB_TOKEN` — i.e. during `npm run dev` — Publish writes to disk instead of committing,
+so you can try edits locally and see them hot-reload.
+
+Two things to know about the secret URL. Changing `CMS_PATH` moves the page on the next deploy, so
+it's easy to rotate if you ever paste it somewhere by accident. And it does appear in the Vercel
+build log (as the one prerendered path of the `/[cmsPath]` route) — those logs are visible to
+anyone on the Vercel project, which for a solo project means only you.
+
 ### Placeholders you must replace before launching
 
 These ship with dummy values. All of them are in the `identity` block at the top of
@@ -47,8 +106,11 @@ Two more, outside `identity`:
 
 ### Images
 
-Images live in `public/images/`. To swap one, **overwrite the file and keep the same name** —
-no code or JSON changes needed.
+The easiest way to change a picture is to click it in the editor (above). Failing that, drop a new
+file into `public/images/` and point the matching path in `content/site.json` at it.
+
+Uploaded pictures are named `<original>-<hash>.jpg`, so `public/images/` accumulates the ones you
+have replaced. Deleting a file no longer referenced from `site.json` is safe.
 
 | File | Used on |
 |---|---|

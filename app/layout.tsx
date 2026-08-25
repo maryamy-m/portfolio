@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Sora, Manrope, JetBrains_Mono } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import EditorMount from '@/components/cms/EditorMount'
 import { identity, site, ICON_FONT_HREF } from '@/lib/site'
 import './globals.css'
 
@@ -38,6 +39,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             which would break any sticky positioning inside. */}
         <main className="w-full pt-20 bg-background overflow-x-clip">{children}</main>
         <Footer />
+        {/* Renders nothing for a visitor — see components/cms/EditorMount.tsx. */}
+        <EditorMount />
       </body>
     </html>
   )

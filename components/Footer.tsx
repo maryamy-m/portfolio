@@ -2,8 +2,9 @@
 
 import { usePathname } from 'next/navigation'
 import { site, channelValue } from '@/lib/site'
+import Ed from '@/components/cms/Ed'
 
-const { headline, links, copyright } = site.footer
+const { links } = site.footer
 
 export default function Footer() {
   // /contact opens with this exact sentence — don't say it twice on one page.
@@ -16,12 +17,14 @@ export default function Footer() {
           <div className="max-w-2xl w-full">
             <div className="h-px w-full bg-outline-variant/50 mb-8" aria-hidden="true" />
             {showHeadline && (
-              <h2 className="font-display-lg text-[40px] lg:text-[48px] text-primary leading-tight font-bold">
-                {headline}
-              </h2>
+              <Ed
+                as="h2"
+                p="footer.headline"
+                className="font-display-lg text-[40px] lg:text-[48px] text-primary leading-tight font-bold"
+              />
             )}
             <div className="flex flex-wrap gap-8 mt-10">
-              {links.map((link) => {
+              {links.map((link, i) => {
                 const { href } = channelValue(link.valueFrom)
                 const external = href.startsWith('http')
                 return (
@@ -32,13 +35,17 @@ export default function Footer() {
                     className="flex items-center gap-3 text-primary hover:underline font-body-md text-[20px] lg:text-[24px]"
                   >
                     <span className="msym text-[32px]">{link.icon}</span>
-                    {link.label}
+                    <Ed p={`footer.links.${i}.label`} />
                   </a>
                 )
               })}
             </div>
           </div>
-          <p className="font-label-mono text-label-mono text-on-surface-variant lg:self-end">{copyright}</p>
+          <Ed
+            as="p"
+            p="footer.copyright"
+            className="font-label-mono text-label-mono text-on-surface-variant lg:self-end"
+          />
         </div>
       </div>
     </footer>

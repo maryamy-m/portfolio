@@ -1,12 +1,20 @@
 import { site } from '@/lib/site'
+import Ed from '@/components/cms/Ed'
 
 type Metric = (typeof site.home.metrics)[number]
 
-/** Shared metric strip — same four figures on Home and Work, ordered per screen. */
-export default function Metrics({ items }: { items: readonly Metric[] }) {
+/**
+ * Shared metric strip — same four figures on Home and Work, ordered per screen.
+ *
+ * `path` is the base address of `items` in content/site.json (`home.metrics` or
+ * `work.metrics`) so each figure can carry its own `data-cms` path for the
+ * inline editor. The two screens order the same numbers differently, so the
+ * index only means anything relative to that base.
+ */
+export default function Metrics({ items, path }: { items: readonly Metric[]; path: string }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter lg:gap-8">
-      {items.map((m) => (
+      {items.map((m, i) => (
         <div
           key={m.label}
           className="bg-surface-container border border-outline-variant/30 rounded-xl p-8 flex flex-col group transition-all duration-300 hover:scale-105 hover:shadow-xl hover:border-primary/50 relative overflow-hidden"
@@ -15,17 +23,21 @@ export default function Metrics({ items }: { items: readonly Metric[] }) {
             <span className="msym text-[64px] text-primary">{m.icon}</span>
           </div>
           <div className="font-display-lg text-primary flex items-baseline z-10 mb-2 gap-1">
-            {m.prefix && <span className="text-3xl font-bold">{m.prefix}</span>}
-            <span className="text-[64px] font-display-lg leading-none">{m.value}</span>
+            {m.prefix && <Ed p={`${path}.${i}.prefix`} className="text-3xl font-bold" />}
+            <Ed p={`${path}.${i}.value`} className="text-[64px] font-display-lg leading-none" />
             {'arrowTo' in m && m.arrowTo !== undefined && (
               <>
                 <span className="msym text-[32px] text-primary self-center">arrow_right_alt</span>
-                <span className="text-[64px] font-display-lg leading-none">{m.arrowTo}</span>
+                <Ed p={`${path}.${i}.arrowTo`} className="text-[64px] font-display-lg leading-none" />
               </>
             )}
-            {m.suffix && <span className="text-3xl font-bold">{m.suffix}</span>}
+            {m.suffix && <Ed p={`${path}.${i}.suffix`} className="text-3xl font-bold" />}
           </div>
-          <p className="font-body-md text-on-surface-variant uppercase tracking-widest text-[14px] z-10">{m.label}</p>
+          <Ed
+            as="p"
+            p={`${path}.${i}.label`}
+            className="font-body-md text-on-surface-variant uppercase tracking-widest text-[14px] z-10"
+          />
         </div>
       ))}
     </div>

@@ -1,18 +1,20 @@
-import Image from 'next/image'
 import type { Metadata } from 'next'
 import { site } from '@/lib/site'
+import Ed from '@/components/cms/Ed'
+import EdImage from '@/components/cms/EdImage'
 
-const { hero, principles, wild, timeline, education, meta } = site.about
+const { principles, timeline, education, meta } = site.about
 
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.description,
 }
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
+/** Numbered rule above each section; `p` addresses its label in site.json. */
+function SectionLabel({ p }: { p: string }) {
   return (
     <div className="flex items-center gap-6 mb-12">
-      <span className="font-label-mono text-label-mono text-primary uppercase tracking-widest">{children}</span>
+      <Ed p={p} className="font-label-mono text-label-mono text-primary uppercase tracking-widest" />
       <span className="flex-grow h-px bg-outline-variant/50" aria-hidden="true" />
     </div>
   )
@@ -23,23 +25,28 @@ export default function AboutPage() {
     <div className="flex flex-col w-full">
       {/* Hero */}
       <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pt-20 pb-stack-gap">
-        <h1 className="text-[40px] sm:text-[56px] lg:text-[72px] font-display-lg text-primary text-balance font-bold leading-[1.1] max-w-5xl">
-          {hero.headline}
-        </h1>
+        <Ed
+          as="h1"
+          p="about.hero.headline"
+          className="text-[40px] sm:text-[56px] lg:text-[72px] font-display-lg text-primary text-balance font-bold leading-[1.1] max-w-5xl"
+        />
       </section>
 
       {/* 01 — Principles */}
       <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pb-stack-gap">
-        <SectionLabel>{principles.label}</SectionLabel>
+        <SectionLabel p="about.principles.label" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-          {principles.items.map((p) => (
+          {principles.items.map((item, i) => (
             <article
-              key={p.tag}
+              key={item.tag}
               className="bg-surface-container border border-outline-variant/30 rounded-xl p-8 flex flex-col hover:border-primary/50 transition-colors"
             >
-              <span className="font-label-mono text-label-mono text-on-surface-variant uppercase mb-6">{p.tag}</span>
-              <h3 className="font-headline-md text-headline-md text-primary mb-4">{p.title}</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">{p.body}</p>
+              <Ed
+                p={`about.principles.items.${i}.tag`}
+                className="font-label-mono text-label-mono text-on-surface-variant uppercase mb-6"
+              />
+              <Ed as="h3" p={`about.principles.items.${i}.title`} className="font-headline-md text-headline-md text-primary mb-4" />
+              <Ed as="p" p={`about.principles.items.${i}.body`} className="font-body-md text-body-md text-on-surface-variant" />
             </article>
           ))}
         </div>
@@ -47,12 +54,12 @@ export default function AboutPage() {
 
       {/* 02 — Me in the wild */}
       <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pb-stack-gap">
-        <SectionLabel>{wild.label}</SectionLabel>
+        <SectionLabel p="about.wild.label" />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
           <div className="lg:col-span-7 relative w-full aspect-video rounded-xl overflow-hidden bg-surface-container-high group">
-            <Image
-              src={wild.image}
-              alt={wild.imageAlt}
+            <EdImage
+              p="about.wild.image"
+              altPath="about.wild.imageAlt"
               fill
               sizes="(max-width: 1024px) 100vw, 58vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -63,30 +70,33 @@ export default function AboutPage() {
             </span>
           </div>
           <div className="lg:col-span-5 flex flex-col">
-            <h2 className="font-headline-md text-headline-md text-primary mb-4">{wild.title}</h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant">{wild.body}</p>
+            <Ed as="h2" p="about.wild.title" className="font-headline-md text-headline-md text-primary mb-4" />
+            <Ed as="p" p="about.wild.body" className="font-body-lg text-body-lg text-on-surface-variant" />
           </div>
         </div>
       </section>
 
       {/* 03 — Timeline */}
       <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pb-stack-gap">
-        <SectionLabel>{timeline.label}</SectionLabel>
+        <SectionLabel p="about.timeline.label" />
         <div className="flex flex-col">
-          {timeline.items.map((item) => (
+          {timeline.items.map((item, i) => (
             <article
               key={item.period}
               className="grid grid-cols-1 md:grid-cols-12 gap-gutter py-8 border-t border-outline-variant/40 last:border-b"
             >
-              <span className="md:col-span-3 font-label-mono text-label-mono text-on-surface-variant uppercase pt-1">
-                {item.period}
-              </span>
+              <Ed
+                p={`about.timeline.items.${i}.period`}
+                className="md:col-span-3 font-label-mono text-label-mono text-on-surface-variant uppercase pt-1"
+              />
               <div className="md:col-span-9 flex flex-col">
-                <h3 className="font-headline-md text-headline-md text-primary">{item.role}</h3>
-                <h4 className="font-label-mono text-label-mono text-on-surface-variant uppercase mt-2 mb-4">
-                  {item.org}
-                </h4>
-                <p className="font-body-md text-body-md text-on-surface-variant">{item.body}</p>
+                <Ed as="h3" p={`about.timeline.items.${i}.role`} className="font-headline-md text-headline-md text-primary" />
+                <Ed
+                  as="h4"
+                  p={`about.timeline.items.${i}.org`}
+                  className="font-label-mono text-label-mono text-on-surface-variant uppercase mt-2 mb-4"
+                />
+                <Ed as="p" p={`about.timeline.items.${i}.body`} className="font-body-md text-body-md text-on-surface-variant" />
               </div>
             </article>
           ))}
@@ -95,35 +105,37 @@ export default function AboutPage() {
 
       {/* 04 — Education */}
       <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pb-stack-gap">
-        <SectionLabel>{education.label}</SectionLabel>
+        <SectionLabel p="about.education.label" />
         <div className="bg-surface-container border border-outline-variant/30 rounded-xl p-8 lg:p-12">
-          <h2 className="font-display-lg text-[32px] lg:text-[40px] text-primary font-bold">{education.degree}</h2>
-          <h3 className="font-label-mono text-label-mono text-on-surface-variant uppercase mt-3">{education.school}</h3>
+          <Ed as="h2" p="about.education.degree" className="font-display-lg text-[32px] lg:text-[40px] text-primary font-bold" />
+          <Ed
+            as="h3"
+            p="about.education.school"
+            className="font-label-mono text-label-mono text-on-surface-variant uppercase mt-3"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter mt-10">
             <div>
-              <span className="font-label-mono text-label-mono text-primary uppercase">{education.focusLabel}</span>
+              <Ed p="about.education.focusLabel" className="font-label-mono text-label-mono text-primary uppercase" />
               <ul className="mt-4 flex flex-col gap-3">
-                {education.focus.map((f) => (
+                {education.focus.map((f, i) => (
                   <li key={f} className="font-body-md text-body-md text-on-surface-variant flex items-center gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
-                    {f}
+                    <Ed p={`about.education.focus.${i}`} />
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <span className="font-label-mono text-label-mono text-primary uppercase">
-                {education.achievementsLabel}
-              </span>
+              <Ed p="about.education.achievementsLabel" className="font-label-mono text-label-mono text-primary uppercase" />
               <ul className="mt-4 flex flex-col gap-3">
-                {education.achievements.map((a) => (
+                {education.achievements.map((a, i) => (
                   <li
                     key={a.label}
                     className="font-body-md text-body-md text-on-surface-variant flex items-center gap-3"
                   >
                     <span className="msym text-[20px] text-primary shrink-0">{a.icon}</span>
-                    {a.label}
+                    <Ed p={`about.education.achievements.${i}.label`} />
                   </li>
                 ))}
               </ul>
