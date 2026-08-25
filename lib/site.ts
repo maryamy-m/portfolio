@@ -31,23 +31,19 @@ export function channelValue(key: string): { label: string; href: string } {
  * Add a name here whenever you use a new icon in content/site.json.
  */
 export const ICONS = [
-  'account_balance',
-  'account_tree',
-  'analytics',
   'arrow_forward',
-  'arrow_outward',
+  'arrow_right_alt',
+  'attach_money',
+  'chat',
   'close',
+  'emoji_events',
   'groups',
   'handshake',
   'link',
   'mail',
   'menu',
-  'monitoring',
   'north_east',
-  'person',
-  'phone_iphone',
-  'rocket_launch',
-  'trending_up',
+  'play_arrow',
   'workspace_premium',
 ] as const
 

@@ -2,113 +2,132 @@ import Image from 'next/image'
 import type { Metadata } from 'next'
 import { site } from '@/lib/site'
 
-const { hero, philosophy, timeline, meta } = site.about
+const { hero, principles, wild, timeline, education, meta } = site.about
 
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.description,
 }
 
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-6 mb-12">
+      <span className="font-label-mono text-label-mono text-primary uppercase tracking-widest">{children}</span>
+      <span className="flex-grow h-px bg-outline-variant/50" aria-hidden="true" />
+    </div>
+  )
+}
+
 export default function AboutPage() {
   return (
     <div className="flex flex-col w-full">
       {/* Hero */}
-      <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pt-32 pb-section-gap relative">
-        <div
-          className="absolute top-0 right-20 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"
-          aria-hidden="true"
-        />
-        <div className="flex flex-col w-full md:w-10/12">
-          <h1 className="font-display-xl text-headline-lg-mobile md:text-display-xl text-on-background tracking-tighter break-words md:-ml-2 leading-[0.9]">
-            {hero.lineOne}
-            <br />
-            <span className="text-primary">{hero.lineTwo}</span>
-          </h1>
+      <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pt-20 pb-stack-gap">
+        <h1 className="text-[40px] sm:text-[56px] lg:text-[72px] font-display-lg text-primary text-balance font-bold leading-[1.1] max-w-5xl">
+          {hero.headline}
+        </h1>
+      </section>
+
+      {/* 01 — Principles */}
+      <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pb-stack-gap">
+        <SectionLabel>{principles.label}</SectionLabel>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+          {principles.items.map((p) => (
+            <article
+              key={p.tag}
+              className="bg-surface-container border border-outline-variant/30 rounded-xl p-8 flex flex-col hover:border-primary/50 transition-colors"
+            >
+              <span className="font-label-mono text-label-mono text-on-surface-variant uppercase mb-6">{p.tag}</span>
+              <h3 className="font-headline-md text-headline-md text-primary mb-4">{p.title}</h3>
+              <p className="font-body-md text-body-md text-on-surface-variant">{p.body}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* Philosophy + toolkit */}
-      <section className="w-full bg-surface-container-low py-section-gap relative overflow-hidden shadow-sm">
-        <div
-          className="absolute -left-32 top-1/2 w-[500px] h-[500px] bg-inverse-primary/20 rounded-full blur-[120px] pointer-events-none -translate-y-1/2"
-          aria-hidden="true"
-        />
-        <div className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-gutter items-center relative z-10">
-          <div className="md:col-span-5 flex flex-col gap-stack-lg">
-            <div className="flex flex-col gap-stack-sm">
-              <span className="font-label-caps text-label-caps text-primary uppercase tracking-widest">
-                {philosophy.eyebrow}
-              </span>
-              <h2 className="font-headline-lg text-headline-lg text-on-surface">{philosophy.headline}</h2>
-            </div>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-prose">{philosophy.body}</p>
+      {/* 02 — Me in the wild */}
+      <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pb-stack-gap">
+        <SectionLabel>{wild.label}</SectionLabel>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+          <div className="lg:col-span-7 relative w-full aspect-video rounded-xl overflow-hidden bg-surface-container-high group">
+            <Image
+              src={wild.image}
+              alt={wild.imageAlt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 58vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+            <span className="absolute inset-0 flex items-center justify-center">
+              <span className="msym text-[64px] text-white drop-shadow-lg">play_arrow</span>
+            </span>
+          </div>
+          <div className="lg:col-span-5 flex flex-col">
+            <h2 className="font-headline-md text-headline-md text-primary mb-4">{wild.title}</h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant">{wild.body}</p>
+          </div>
+        </div>
+      </section>
 
-            <div className="mt-stack-md flex flex-col gap-stack-sm">
-              <span className="font-label-caps text-label-caps text-on-surface-variant uppercase opacity-60">
-                {philosophy.toolkitLabel}
+      {/* 03 — Timeline */}
+      <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pb-stack-gap">
+        <SectionLabel>{timeline.label}</SectionLabel>
+        <div className="flex flex-col">
+          {timeline.items.map((item) => (
+            <article
+              key={item.period}
+              className="grid grid-cols-1 md:grid-cols-12 gap-gutter py-8 border-t border-outline-variant/40 last:border-b"
+            >
+              <span className="md:col-span-3 font-label-mono text-label-mono text-on-surface-variant uppercase pt-1">
+                {item.period}
               </span>
-              <div className="flex flex-wrap gap-unit">
-                {philosophy.toolkit.map((tool) => (
-                  <div
-                    key={tool}
-                    className="bg-surface px-4 py-2 shadow-sm rounded-sm hover:shadow-md transition-shadow"
-                  >
-                    <span className="font-label-caps text-label-caps text-on-surface">{tool}</span>
-                  </div>
+              <div className="md:col-span-9 flex flex-col">
+                <h3 className="font-headline-md text-headline-md text-primary">{item.role}</h3>
+                <h4 className="font-label-mono text-label-mono text-on-surface-variant uppercase mt-2 mb-4">
+                  {item.org}
+                </h4>
+                <p className="font-body-md text-body-md text-on-surface-variant">{item.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* 04 — Education */}
+      <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pb-stack-gap">
+        <SectionLabel>{education.label}</SectionLabel>
+        <div className="bg-surface-container border border-outline-variant/30 rounded-xl p-8 lg:p-12">
+          <h2 className="font-display-lg text-[32px] lg:text-[40px] text-primary font-bold">{education.degree}</h2>
+          <h3 className="font-label-mono text-label-mono text-on-surface-variant uppercase mt-3">{education.school}</h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter mt-10">
+            <div>
+              <span className="font-label-mono text-label-mono text-primary uppercase">{education.focusLabel}</span>
+              <ul className="mt-4 flex flex-col gap-3">
+                {education.focus.map((f) => (
+                  <li key={f} className="font-body-md text-body-md text-on-surface-variant flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                    {f}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
-          </div>
-
-          <div className="md:col-span-6 md:col-start-7 relative mt-stack-lg md:mt-0 mb-12 md:mb-0">
-            <div className="w-full aspect-[4/5] relative shadow-2xl rounded-lg overflow-hidden">
-              <Image
-                src={philosophy.image}
-                alt={philosophy.imageAlt}
-                fill
-                sizes="(max-width: 768px) 100vw, 45vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-8 left-4 md:-left-8 bg-surface p-stack-md shadow-xl rounded-lg flex flex-col gap-unit">
-              <span className="font-metric-huge text-metric-huge text-on-surface">{philosophy.statValue}</span>
-              <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">
-                {philosophy.statLabel}
+            <div>
+              <span className="font-label-mono text-label-mono text-primary uppercase">
+                {education.achievementsLabel}
               </span>
+              <ul className="mt-4 flex flex-col gap-3">
+                {education.achievements.map((a) => (
+                  <li
+                    key={a.label}
+                    className="font-body-md text-body-md text-on-surface-variant flex items-center gap-3"
+                  >
+                    <span className="msym text-[20px] text-primary shrink-0">{a.icon}</span>
+                    {a.label}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop py-section-gap">
-        <div className="flex flex-col md:flex-row gap-gutter">
-          <div className="md:w-1/3 flex flex-col gap-stack-sm">
-            <h2 className="font-headline-lg text-headline-lg text-on-background md:sticky md:top-32">
-              {timeline.headlineTop}
-              <br />
-              {timeline.headlineBottom}
-            </h2>
-          </div>
-
-          <div className="md:w-2/3 flex flex-col gap-stack-md mt-stack-lg md:mt-0">
-            {timeline.items.map((item) => (
-              <div
-                key={item.year}
-                className="group bg-surface-container-lowest p-stack-lg shadow-sm hover:shadow-lg transition-all duration-300 rounded-lg flex flex-col md:flex-row gap-stack-md justify-between items-start cursor-default"
-              >
-                <div className="flex flex-col gap-unit w-full md:w-3/4">
-                  {item.badge && (
-                    <span className="font-label-caps text-label-caps text-primary uppercase">{item.badge}</span>
-                  )}
-                  <h3 className="font-body-lg text-body-lg text-on-surface font-semibold">{item.title}</h3>
-                  <p className="font-body-md text-body-md text-on-surface-variant">{item.body}</p>
-                </div>
-                <span className="font-metric-huge text-metric-huge text-surface-dim opacity-30 group-hover:opacity-100 group-hover:text-primary transition-all duration-500">
-                  {item.year}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
       </section>

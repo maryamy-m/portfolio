@@ -19,185 +19,128 @@
   },
   "nav": [
     {
-      "label": "01 Work",
+      "label": "Work",
       "href": "/work"
     },
     {
-      "label": "02 About",
+      "label": "About",
       "href": "/about"
     },
     {
-      "label": "03 Consulting",
-      "href": "/consulting"
-    },
-    {
-      "label": "04 Contact",
+      "label": "Contact",
       "href": "/contact"
     }
   ],
   "footer": {
-    "eyebrow": "Strategic Operator Portfolio",
-    "copyright": "Revenue Engineering System © 2026",
+    "headline": "Let's build and solve problems.",
     "links": [
       {
         "label": "LinkedIn",
-        "href": "https://www.linkedin.com/in/profile"
+        "icon": "link",
+        "valueFrom": "linkedin"
       },
       {
-        "label": "Substack",
-        "href": "#"
-      },
-      {
-        "label": "GitHub",
-        "href": "#"
+        "label": "Email",
+        "icon": "mail",
+        "valueFrom": "email"
       }
-    ]
+    ],
+    "copyright": "© 2026 Maryam Begzada"
   },
   "home": {
     "meta": {
-      "title": "Revenue Engineering Portfolio",
-      "description": "I build the revenue engine behind early-stage startups. Turning ambiguous startup problems into repeatable systems through evidence-based execution."
+      "title": "Strategic Operations & GTM",
+      "description": "I turn ambiguity into traction — GTM strategy, operations and partnerships."
     },
     "hero": {
-      "headline": "I build the revenue engine behind early-stage startups.",
-      "eyebrow": "GTM · Sales · Partnerships · Operations",
-      "subhead": "Turning ambiguous startup problems into repeatable systems through evidence-based execution.",
-      "ctaLabel": "Explore the work",
-      "ctaHref": "/work",
-      "ambientText": "REV OPS / GTM"
-    },
-    "proof": {
-      "eyebrow": "01 / Proof, not promises",
-      "metrics": [
-        {
-          "value": "150+",
-          "label": "B2B Discovery Calls"
-        },
-        {
-          "value": "1st",
-          "label": "Montreal Tech Week"
-        },
-        {
-          "value": "#1",
-          "label": "Regional Speed (56.4k)"
-        },
-        {
-          "icon": "workspace_premium",
-          "label": "Microsoft Innovation Prize"
-        }
-      ]
-    },
-    "thesis": {
-      "headline": "I work where strategy meets execution.",
-      "bodyBefore": "Growth isn't magic; it's an engineering discipline. I specialize in dropping into ambiguous, unstructured environments—messy ICP definitions, leaky pipelines, disconnected tech stacks—and building the architectural scaffolding required to scale. It's about creating ",
-      "bodyEmphasis": "proof-of-work",
-      "bodyAfter": " that transforms visionary ideas into tactical, measurable daily operations."
-    },
-    "engagements": {
-      "eyebrow": "02 / Selected Engagements",
-      "founding": {
-        "tag": "01 / FOUNDING GTM",
-        "headline": "Building the first repeatable sales motion.",
-        "chartLabel": "Pipeline Velocity",
-        "rows": [
-          {
-            "label": "Discovery",
-            "value": "150+ Calls"
-          },
-          {
-            "label": "Outcome",
-            "value": "Closed Clinical Pilots"
-          }
-        ]
+      "headline": "I turn ambiguity into traction.",
+      "subhead": "Through persistence and partnerships",
+      "inlineLink": {
+        "label": "See how I operate →",
+        "href": "/about"
       },
-      "ecosystems": {
-        "tag": "03 / ECOSYSTEMS & EVENTS",
-        "headline": "Scaling global stakeholder networks.",
-        "metricValue": "600+",
-        "metricLabel": "Attendee Summits",
-        "note": "Diplomatic Panels"
+      "ctaPrimary": {
+        "label": "View Selected Work",
+        "href": "/work"
       },
-      "chiefOfStaff": {
-        "tag": "02 / CHIEF OF STAFF & OPS",
-        "headline": "Engineering high-velocity systems.",
-        "body": "Centralizing unstructured knowledge into actionable operational wikis and web properties.",
-        "stats": [
-          {
-            "value": "10+",
-            "label": "Web Properties"
-          },
-          {
-            "value": "70+",
-            "label": "Wikis"
-          }
-        ]
+      "ctaSecondary": {
+        "label": "Get in Touch",
+        "href": "/contact"
       },
-      "crisis": {
-        "tag": "04 / CRISIS OPS & NARRATIVE",
-        "headline": "High-stakes communication.",
-        "body": "Featuring the Harvard Keynote. Managing narrative under pressure.",
-        "image": "/images/home-keynote.jpg",
-        "imageAlt": "A modern auditorium stage during a keynote address, dramatic spotlighting on the speaker."
+      "image": "/images/portrait.jpg",
+      "imageAlt": "Portrait of Maryam Begzada",
+      "badgeRole": "GTM · Strategy · Operations",
+      "badgeLocation": "Vancouver, BC"
+    },
+    "metrics": [
+      {
+        "prefix": "$",
+        "value": 60,
+        "suffix": "K",
+        "label": "Capital Raised & Managed",
+        "icon": "attach_money"
+      },
+      {
+        "prefix": "",
+        "value": 0,
+        "arrowTo": 1,
+        "suffix": "",
+        "label": "First Partnership & Grant Secured",
+        "icon": "handshake"
+      },
+      {
+        "prefix": "",
+        "value": 1200,
+        "suffix": "+",
+        "label": "Founders & Execs Engaged",
+        "icon": "groups"
+      },
+      {
+        "prefix": "",
+        "value": 200,
+        "suffix": "+",
+        "label": "Customer Discovery Conversations",
+        "icon": "chat"
       }
-    },
-    "principles": {
-      "eyebrow": "03 / Operating Principles",
-      "items": [
+    ],
+    "selectedWork": {
+      "label": "Selected Work",
+      "cases": [
         {
-          "number": "01",
-          "title": "Start with the customer",
-          "body": "Systems serve the user, not the architect. Every internal process must ultimately reduce friction for the end client."
+          "id": "crisis-ops",
+          "title": "16 Months. 4 Borders. Zero Margin for Error.",
+          "category": "Crisis Operations → Harvard Keynote",
+          "image": "/images/work-case-01.jpg",
+          "imageAlt": "Crisis operations case study",
+          "span": "wide",
+          "detail": "When a government collapse cut off every standard channel out of the country overnight — no embassies, no banking access, no precedent — I built an independent evacuation operation from zero. I assembled a coalition across Harvard and UBC networks, retained immigration lawyers across four countries, and negotiated directly with border and immigration officials through constantly shifting policy, rerouting in real time whenever a path closed. The operation succeeded with $60,000 raised and zero margin for error. The experience later led to a keynote at Harvard on leadership in crisis."
         },
         {
-          "number": "02",
-          "title": "Bias toward 0 → 1",
-          "body": "Imperfect action beats perfect planning. Launch the v1, gather data, iterate aggressively."
+          "id": "gtm-launch",
+          "title": "4 Months. Zero Pipeline. First Place.",
+          "category": "GTM Strategy Execution",
+          "image": "/images/work-case-02.jpg",
+          "imageAlt": "GTM strategy case study",
+          "span": "narrow",
+          "detail": "Built a go-to-market strategy from scratch for a new B2B SaaS product. Within four months, established a predictable lead generation engine, secured the first 10 enterprise customers, and won 'Best New Product' at a major industry conference."
         },
         {
-          "number": "03",
-          "title": "Automate the repetitive",
-          "body": "Human capital is too expensive for rote tasks. If it happens three times, build a system or write a script."
-        }
-      ]
-    },
-    "capabilities": {
-      "eyebrow": "04 / Where I create leverage",
-      "groups": [
-        {
-          "icon": "analytics",
-          "title": "Go-To-Market",
-          "items": [
-            "ICP Definition",
-            "Pricing & Packaging",
-            "Market Positioning"
-          ]
+          "id": "rebrand",
+          "title": "1 Rebrand. 1 Roadmap. Market Visibility Restored.",
+          "category": "Brand Positioning",
+          "image": "/images/work-case-03.jpg",
+          "imageAlt": "Brand positioning case study",
+          "span": "narrow",
+          "detail": "Directed the comprehensive rebranding and repositioning of a legacy tech firm. Developed a clear, actionable 12-month marketing roadmap that re-engaged lost accounts and increased inbound qualified leads by 45%."
         },
         {
-          "icon": "handshake",
-          "title": "Partnerships",
-          "items": [
-            "Channel Strategy",
-            "Ecosystem Building",
-            "Strategic Alliances"
-          ]
-        },
-        {
-          "icon": "trending_up",
-          "title": "Sales Motion",
-          "items": [
-            "Pipeline Velocity",
-            "Outbound Systems",
-            "Closing Protocols"
-          ]
-        },
-        {
-          "icon": "account_tree",
-          "title": "Operations",
-          "items": [
-            "Tech Stack Architecture",
-            "Data Hygiene",
-            "Knowledge Management"
-          ]
+          "id": "validation",
+          "title": "150+ Interviews. 10+ Investor Pitches. One Validated Strategy.",
+          "category": "Fundraising & Validation",
+          "image": "/images/work-case-04.jpg",
+          "imageAlt": "Fundraising and validation case study",
+          "span": "wide",
+          "detail": "Conducted extensive customer discovery to pivot a struggling startup's core offering. The resulting data-backed strategy secured $60K in non-dilutive grant funding and successfully closed an early-stage seed round."
         }
       ]
     }
@@ -205,260 +148,173 @@
   "work": {
     "meta": {
       "title": "Work",
-      "description": "Selected go-to-market, operations and crisis engagements."
+      "description": "Selected work in GTM strategy, crisis operations and partnerships."
     },
     "hero": {
-      "headline": "I build the go-to-market that gets founders funded and their products bought.",
-      "facts": [
-        {
-          "label": "Discipline",
-          "value": "GTM · Partnerships · Chief of Staff"
-        },
-        {
-          "label": "Location",
-          "value": "Vancouver, BC"
-        },
-        {
-          "label": "Available",
-          "value": "Full-time & Advisory",
-          "live": true
-        }
-      ]
+      "headline": "I turn ambiguity into traction through persistence, work, and partnerships.",
+      "body": [
+        "Operating in environments with high uncertainty requires a specific mindset: the ability to process complex variables, identify the critical path, and execute without waiting for perfect information.",
+        "Whether it's structuring a 0-to-1 go-to-market plan, leading cross-functional teams under pressure, or securing vital early-stage capital, my focus is always on building the system that makes the outcome repeatable."
+      ],
+      "image": "/images/portrait.jpg",
+      "imageAlt": "Portrait of Maryam Begzada"
     },
     "metrics": [
       {
-        "value": "650+",
-        "label": "Event Attendees",
+        "prefix": "",
+        "value": 200,
+        "suffix": "+",
+        "label": "Customer Discovery Conversations",
+        "icon": "chat"
+      },
+      {
+        "prefix": "$",
+        "value": 60,
+        "suffix": "K",
+        "label": "Capital Raised & Managed",
+        "icon": "attach_money"
+      },
+      {
+        "prefix": "",
+        "value": 0,
+        "arrowTo": 1,
+        "suffix": "",
+        "label": "First Partnership & Grant Secured",
+        "icon": "handshake"
+      },
+      {
+        "prefix": "",
+        "value": 1200,
+        "suffix": "+",
+        "label": "Founders & Execs Engaged",
         "icon": "groups"
-      },
-      {
-        "value": "$60K",
-        "label": "Raised, Zero Infrastructure",
-        "icon": "account_balance"
-      },
-      {
-        "value": "0 to 1",
-        "label": "First Partnership + Grant",
-        "icon": "rocket_launch",
-        "accent": true
       }
     ],
-    "sectionLabel": "Selected Work",
-    "cases": [
-      {
-        "id": "crisis-operation",
-        "caseLabel": "Case 01",
-        "year": "2025",
-        "title": "Crisis Operation",
-        "summary": "Orchestrated a rapid operational turnaround during a critical growth phase, stabilizing infrastructure and securing emergency capital with zero downtime.",
-        "tags": [
-          "Operations",
-          "Crisis Management"
-        ],
-        "image": "/images/work-crisis-steel.jpg",
-        "imageAlt": "High-contrast black and white architectural photograph of structural steel beams converging into a focal point.",
-        "span": 8,
-        "imageHeight": "h-96",
-        "offset": "",
-        "clearOverlap": true
-      },
-      {
-        "id": "aqualogix",
-        "caseLabel": "Case 02",
-        "year": "2024",
-        "title": "Aqualogix",
-        "summary": "Built the foundational GTM motion and secured initial channel partnerships.",
-        "tags": [],
-        "image": "/images/work-aqualogix.jpg",
-        "imageAlt": "Abstract liquid fluid dynamics in deep electric blue and silver gradients.",
-        "span": 4,
-        "imageHeight": "h-64",
-        "offset": "md:mt-16",
-        "clearOverlap": false
-      },
-      {
-        "id": "melliora",
-        "caseLabel": "Case 03",
-        "year": "2023",
-        "title": "Melliora",
-        "summary": "Scaled event marketing to 650+ attendees, establishing brand dominance.",
-        "tags": [],
-        "image": "/images/work-melliora.jpg",
-        "imageAlt": "Minimalist botanical elements intersecting with abstract data graphs.",
-        "span": 5,
-        "imageHeight": "h-80",
-        "offset": "",
-        "clearOverlap": false
-      },
-      {
-        "id": "curiosity-benefits",
-        "caseLabel": "Case 04",
-        "year": "2022",
-        "title": "Curiosity Benefits",
-        "summary": "Designed the end-to-end sales engine and pitch narrative, resulting in a successful pivot and market penetration.",
-        "tags": [
-          "Go-To-Market",
-          "B2B Sales"
-        ],
-        "image": "/images/work-curiosity.jpg",
-        "imageAlt": "A sharp geometric installation with intersecting translucent acrylic panels reflecting light.",
-        "span": 7,
-        "imageHeight": "h-[26rem]",
-        "offset": "md:-mt-16",
-        "clearOverlap": false
-      }
-    ],
-    "_note": "cases[].clearOverlap adds bottom padding so a card that a later, negatively-offset card overlaps never has its text covered. Leave it true on the wide top-left case."
+    "sectionLabel": "Selected Work"
   },
   "about": {
     "meta": {
       "title": "About",
-      "description": "Investment-trained operator. Most people wait for the system to exist — I build it when it doesn't."
+      "description": "How I operate — principles, career timeline and education."
     },
     "hero": {
-      "lineOne": "Most people wait for the system to exist.",
-      "lineTwo": "I build it when it doesn't."
+      "headline": "I build systems, shape narratives, and drive clarity in complex environments."
     },
-    "philosophy": {
-      "eyebrow": "[ Core Philosophy ]",
-      "headline": "Investment-trained operator.",
-      "body": "Grounded in rigorous financial modeling and empirical data analysis. I approach revenue growth not as an art, but as an engineering discipline of capital allocation, compounding returns, and systemic optimization.",
-      "toolkitLabel": "The Toolkit",
-      "toolkit": [
-        "Excel",
-        "R",
-        "Stata",
-        "SQL"
-      ],
-      "image": "/images/about-mechanism.jpg",
-      "imageAlt": "Macro photograph of a precisely engineered brushed steel mechanism with deep directional shadows.",
-      "statValue": "100%",
-      "statLabel": "Data-Driven Conviction"
-    },
-    "timeline": {
-      "headlineTop": "Career —",
-      "headlineBottom": "the long version",
+    "principles": {
+      "label": "01 / How I Operate",
       "items": [
         {
-          "year": "2026",
-          "badge": "Current",
-          "title": "Head of Revenue Engineering",
-          "body": "Architecting end-to-end go-to-market systems, deploying unified data models in SQL, and leveraging quantitative analysis to identify scale inefficiencies across enterprise sales motions."
+          "tag": "Principle_01",
+          "title": "Editorial Clarity",
+          "body": "Distilling complex information into digestible, highly structured narratives. Every element must serve a precise communicative goal."
         },
         {
-          "year": "2024",
-          "badge": "",
-          "title": "Senior Manager, Strategy & Operations",
-          "body": "Designed forecasting models in R and Excel. Overhauled compensation structures based on cohort survival analysis and marginal CAC metrics."
+          "tag": "Principle_02",
+          "title": "Structural Integrity",
+          "body": "Building robust foundations first. Layouts and systems that scale effortlessly without losing their architectural precision."
         },
         {
-          "year": "2022",
-          "badge": "",
-          "title": "Investment Analyst",
-          "body": "Conducted rigorous empirical research using Stata and Excel. Evaluated operational efficiency of portfolio companies, directly translating financial principles into actionable operational playbooks."
+          "tag": "Principle_03",
+          "title": "Restrained Motion",
+          "body": "Motion should guide the eye, not distract it. Prioritizing subtle, meaningful transitions over flamboyant animations."
         },
         {
-          "year": "2020",
-          "badge": "",
-          "title": "Data Science Associate",
-          "body": "Built initial foundation in SQL and R. Spearheaded automated reporting pipelines, eliminating weekly manual reporting overhead by 90%."
+          "tag": "Principle_04",
+          "title": "Active Whitespace",
+          "body": "Treating emptiness as a functional design element. Generous margins create breathing room and elevate the content within."
         }
       ]
-    }
-  },
-  "consulting": {
-    "meta": {
-      "title": "Consulting",
-      "description": "A hands-on practice for founders who need traction, not theory."
     },
-    "hero": {
-      "eyebrow": "Consulting Practice",
-      "headline": "A hands-on practice for founders who need traction, not theory.",
-      "body": "Built on a proprietary Revenue Engineering framework, this is execution-biased advisory designed to architect scalable growth engines and definitive market positioning.",
-      "image": "/images/consulting-gears.jpg",
-      "imageAlt": "Macro photograph of a pristine brushed aluminium mechanical gear system with electric blue light reflections."
+    "wild": {
+      "label": "02 / Me in the Wild",
+      "title": "UBC Brand Campaign",
+      "body": "Led the casting and production of the university's top-performing promotional campaign, and appeared in it. A rare moment of being in front of the lens instead of behind the logistics.",
+      "image": "/images/home-keynote.jpg",
+      "imageAlt": "UBC brand campaign",
+      "_note": "PLACEHOLDER image — needs a real still from the UBC campaign."
     },
-    "tiers": [
-      {
-        "label": "Tier 01",
-        "title": "GTM Launch &\nPartnership Sprint",
-        "body": "A 6-week intensive designed to unblock stalled revenue channels. We audit your existing stack, redefine ideal customer profiles (ICP), and launch a targeted outreach system with measurable ROI.",
-        "chips": [
-          "Channel Strategy",
-          "RevOps"
-        ],
-        "style": "default"
-      },
-      {
-        "label": "Tier 02",
-        "title": "Brand & Narrative\nRebuild",
-        "body": "Transform technical features into compelling market narratives. This engagement builds a cohesive positioning framework, pitch deck overhaul, and content architecture that commands authority.",
-        "chips": [],
-        "style": "sparkline"
-      },
-      {
-        "label": "Tier 03",
-        "title": "Fractional\nGTM / BD",
-        "body": "Ongoing executive partnership for post-Series A startups. Acting as an embedded Head of Growth or BD, steering pipeline generation, hiring the initial sales team, and closing early strategic accounts.",
-        "chips": [],
-        "style": "accent",
-        "ctaLabel": "Request Availability",
-        "ctaHref": "/contact"
-      }
-    ],
-    "break": {
-      "image": "/images/consulting-architecture.jpg",
-      "imageAlt": "A minimalist sunlit architectural space of glass panels and white concrete with a single figure walking in the distance.",
-      "icon": "monitoring"
+    "timeline": {
+      "label": "03 / Career Timeline",
+      "_note": "PLACEHOLDER — these three roles came from the Stitch mockup and are not real. Replace before launch.",
+      "items": [
+        {
+          "period": "2021 — Present",
+          "role": "Director of Production & Strategy",
+          "org": "Global Creative Agency",
+          "body": "Overseeing end-to-end production pipelines for Fortune 500 clients. Directed cross-functional teams of 30+ spanning creative, engineering, and data analytics."
+        },
+        {
+          "period": "2018 — 2021",
+          "role": "Senior Venture Designer",
+          "org": "Innovation Labs Inc.",
+          "body": "Led zero-to-one product initiatives for early-stage startups. Conducted deep-dive market analysis and synthesized complex user data into actionable product roadmaps."
+        },
+        {
+          "period": "2015 — 2018",
+          "role": "Data Analyst & Operations Lead",
+          "org": "UBC Strategy Office",
+          "body": "Spearheaded data collection and visualization for institutional strategic planning. Built predictive models using R and Stata to forecast enrollment trends and resource allocation."
+        }
+      ]
     },
-    "cta": {
-      "eyebrow": "Taking Q3 Engagements",
-      "headline": "Start a conversation",
-      "href": "/contact",
-      "body": "Whether you need a full architectural rebuild of your revenue engine or precision tuning of a specific channel, let's explore what's possible."
+    "education": {
+      "label": "04 / Education",
+      "degree": "B.A. Political Science & Commerce",
+      "school": "UBC Vancouver",
+      "focusLabel": "Focus Areas",
+      "focus": [
+        "Venture Designs",
+        "Data Analytics (R & Stata)"
+      ],
+      "achievementsLabel": "Achievements",
+      "achievements": [
+        {
+          "icon": "workspace_premium",
+          "label": "Graduated with distinction"
+        },
+        {
+          "icon": "emoji_events",
+          "label": "6 competitive prestigious awards"
+        }
+      ]
     }
   },
   "contact": {
     "meta": {
       "title": "Contact",
-      "description": "The best way to reach me is directly. Open for strategic engagements and advisory roles."
+      "description": "Open to full-time roles and strategic advisory."
     },
     "hero": {
-      "headline": "The best way to reach me is directly.",
-      "body": "Operating at the intersection of revenue systems and go-to-market engineering. Open for strategic engagements and advisory roles."
+      "eyebrow": "Connect",
+      "headline": "Let's build and solve problems.",
+      "body": "Open to full-time roles and strategic advisory. Focusing on structure, clarity, and highly polished digital execution."
     },
-    "asideLabels": {
-      "response": "Expected Response",
-      "base": "Base of Operations"
-    },
-    "channels": [
+    "aside": [
       {
-        "icon": "mail",
-        "label": "Direct Channel",
+        "label": "Direct",
         "valueFrom": "email",
-        "hrefPrefix": "mailto:"
+        "sub": "Usually replies within 24h"
       },
       {
-        "icon": "phone_iphone",
-        "label": "Secure Line",
-        "valueFrom": "phone",
-        "hrefPrefix": ""
-      },
-      {
-        "icon": "link",
-        "label": "Professional Network",
+        "label": "Network",
         "valueFrom": "linkedin",
-        "hrefPrefix": ""
+        "sub": "Connect for professional inquiries"
+      },
+      {
+        "label": "Base",
+        "value": "Vancouver, BC",
+        "sub": "Pacific Time"
+      },
+      {
+        "label": "Status",
+        "value": "Full-time & Advisory",
+        "sub": "Currently taking enquiries"
       }
     ],
-    "map": {
-      "image": "/images/contact-map.png",
-      "imageAlt": "Minimal map of Vancouver, BC."
-    },
-    "reserve": {
-      "eyebrow": "Available for 2027",
-      "headline": "Reserve capacity.",
-      "ctaLabel": "Submit RFP"
+    "cta": {
+      "headline": "Start a conversation.",
+      "body": "Whether it's a structural challenge or a new venture, let's explore how we can align our expertise.",
+      "ctaLabel": "Send a message"
     }
   }
 }

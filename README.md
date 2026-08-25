@@ -1,15 +1,17 @@
 # Portfolio
 
-A five-page portfolio site built from the **Revenue Engineering System** design direction
-in the Google Stitch export. Next.js 15 (App Router) + Tailwind, fully static.
+A four-page portfolio site built from the Google Stitch screen
+**"Portfolio | Refined Spacing & Compact Footer"**. Next.js 15 (App Router) + Tailwind, fully static.
 
 ```
-/            Home        — hero, proof metrics, thesis, bento engagements, principles
-/work        Work        — hero, metrics, four case cards
-/about       About       — hero, philosophy + toolkit, career timeline
-/consulting  Consulting  — hero, three service tiers, visual break, CTA
-/contact     Contact     — hero, contact channels, map, capacity CTA
+/         Home     — hero, four metrics, selected-work bento grid
+/work     Work     — hero, metrics, same case grid
+/about    About    — hero, four principles, "me in the wild", timeline, education
+/contact  Contact  — hero, contact rows, CTA
 ```
+
+Typefaces: **Sora** (display), **Manrope** (body), **JetBrains Mono** (labels). Near-monochrome
+palette on `#00003c`.
 
 ---
 
@@ -32,15 +34,16 @@ These ship with dummy values. All of them are in the `identity` block at the top
 
 | Field | Ships as | Notes |
 |---|---|---|
-| `name` | `[YOUR NAME]` | Used in page titles and social previews |
-| `siteUrl` | `https://example.com` | Your real domain. Drives `sitemap.xml`, `robots.txt` and OG tags |
-| `email` | `hello@example.com` | Contact page + the "Submit RFP" button |
+| `email` | `hello@example.com` | Contact page, footer, and the "Send a message" button |
 | `phone` / `phoneHref` | `+1 (555) 012 3456` | Keep both in sync; `phoneHref` is the `tel:` link |
 | `linkedin` / `linkedinLabel` | `/in/profile` | URL and the text shown on the card |
 | `resumeUrl` | `/resume.pdf` | **Add `public/resume.pdf`**, or set this to `""` to hide the Résumé link entirely |
-| `location`, `locationCode` | Vancouver, BC | `locationCode` is the mono readout over the map |
 
-Also in `footer.links`: Substack and GitHub are `"#"` — set real URLs or delete those entries.
+Two more, outside `identity`:
+
+- **`about.timeline`** — the three job entries came from the Stitch mockup and are **not real**.
+  Replace them before showing this to anyone.
+- **`about.wild.image`** — placeholder; needs a real still from the UBC campaign.
 
 ### Images
 
@@ -49,26 +52,22 @@ no code or JSON changes needed.
 
 | File | Used on |
 |---|---|
-| `home-keynote.jpg` | Home — crisis ops bento tile |
-| `work-crisis-steel.jpg` | Work — Case 01 |
-| `work-aqualogix.jpg` | Work — Case 02 |
-| `work-melliora.jpg` | Work — Case 03 |
-| `work-curiosity.jpg` | Work — Case 04 |
-| `about-mechanism.jpg` | About — philosophy section |
-| `consulting-gears.jpg` | Consulting — hero |
-| `consulting-architecture.jpg` | Consulting — visual break |
-| `contact-map.png` | Contact — map panel |
+| `portrait.jpg` | Home hero, Work hero, header avatar |
+| `logo.jpg` | Header mark |
+| `work-case-01.jpg` … `-04.jpg` | The four case cards |
+| `home-keynote.jpg` | About — "Me in the Wild" |
 
-These were downloaded from the Stitch CDN (those URLs expire) and are now served locally.
-Three of them — Aqualogix, Melliora, Curiosity — are AI mockups that visibly contain the words
-*"Strategic GTM & Ops Portfolio"*; you'll probably want to replace those with real project imagery.
+`portrait.jpg` is only 512×343 (it came from a Stitch thumbnail) — swap in a real high-resolution
+photo. The four `work-case-*` images are Unsplash stock standing in for real project imagery.
+Files from the previous design are still in the folder but unused.
 
 ### Icons
 
 Icons are Material Symbols, referenced by name in `content/site.json` (e.g. `"icon": "groups"`).
 The font is **subsetted** to only the icons in use, listed in `ICONS` in
 [`lib/site.ts`](lib/site.ts). If you add a new icon name to the JSON, add it to that array too —
-otherwise the glyph won't be in the downloaded font and nothing will render.
+otherwise the glyph won't be in the downloaded font and nothing will render. (This bit us once:
+the LinkedIn footer link rendered as the literal text `LINK` until `link` was added to the array.)
 
 ---
 
@@ -105,24 +104,20 @@ original Stitch export, kept as design reference only.
 
 ## Notes on the build
 
-- **Design tokens** in `tailwind.config.ts` are ported verbatim from the Stitch export's
-  `revenue_engineering_system/DESIGN.md` — colours, type scale, spacing, radii.
-- **Tailwind v3**, deliberately, because the Stitch config uses v3's `fontSize` tuple format
+- **Design tokens** in `tailwind.config.ts` are generated from the inline `tailwind.config` in the
+  Stitch screen's HTML, not hand-written.
+- **Tailwind v3**, deliberately, because the config uses v3's `fontSize` tuple format
   (`['72px', { lineHeight, letterSpacing, fontWeight }]`). Migrating to v4 would mean rewriting
   the type scale.
 - **Icon class is `.msym`, not `.material-symbols-outlined`.** Google's icon stylesheet loads
   after Tailwind's and pins `.material-symbols-outlined` to `font-size: 24px`, which silently
   overrides every Tailwind text-size utility. Owning the class name keeps sizing working.
-- **`<main>` uses `overflow-x-clip`** to contain decorative blurred blobs that extend past the
-  right edge on narrow screens. `clip` rather than `hidden` — `hidden` would create a scroll
-  container and break the About page's sticky heading.
-- **Mobile display type** steps down to the design system's `headline-lg-mobile` (32px) from
-  `display-xl` (72px); the Stitch export had no responsive heading sizes.
-- Case cards on `/work` are `<article>`, not links — there are no case-study detail pages yet.
-  The Stitch export had them as `<a href="#">`. To add detail pages, create
-  `app/work/[slug]/page.tsx` keyed on the `id` field already present in each case.
-- The "Submit RFP" button is a `mailto:` link with a prefilled subject. A real form would need a
-  Next.js route handler plus an email provider.
+- **`<main>` uses `overflow-x-clip`** rather than `hidden`, which would create a scroll container
+  and break sticky positioning.
+- Case cards open a modal instead of navigating. To add real detail pages, create
+  `app/work/[slug]/page.tsx` keyed on the `id` already present in each case.
+- The "Send a message" button is a `mailto:` link with a prefilled subject. A real form would need
+  a Next.js route handler plus an email provider.
 
 ## Scripts
 

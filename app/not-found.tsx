@@ -2,11 +2,11 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <div className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop py-section-gap min-h-[60vh] flex flex-col justify-center gap-stack-lg">
-      <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-[0.2em]">
+    <div className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop py-section-gap min-h-[60vh] flex flex-col justify-center gap-8">
+      <span className="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-[0.2em]">
         Error 404
       </span>
-      <h1 className="font-display-xl text-headline-lg-mobile md:text-display-xl text-on-surface tracking-tighter max-w-3xl">
+      <h1 className="font-display-lg text-[40px] md:text-[72px] font-bold text-primary leading-[1.1] max-w-3xl">
         This page isn&apos;t part of the system.
       </h1>
       <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">

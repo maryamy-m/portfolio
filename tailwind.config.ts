@@ -1,107 +1,111 @@
 import type { Config } from 'tailwindcss'
 
 /**
- * Ported verbatim from the Stitch export:
- * stitch_gtm_strategy_sales_portfolio/revenue_engineering_system/DESIGN.md
- * Do not hand-edit colour values here — change them in DESIGN.md terms and mirror.
+ * Ported from the Stitch screen "Portfolio | Refined Spacing & Compact Footer"
+ * (project 1000797297664788185, screen 295198633b0740a7bf53bed06175e1a3).
+ *
+ * Typeface roles: Sora for display/headline, Manrope for body, JetBrains Mono
+ * for labels. All three are loaded in app/layout.tsx via next/font/google and
+ * exposed as the CSS variables referenced below.
+ *
+ * Stays on Tailwind v3 — the fontSize tuple format below is v3-only.
  */
 const config: Config = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './content/**/*.json'],
   theme: {
     extend: {
       colors: {
-        primary: '#0041c8',
+        /* primary */
+        primary: '#00003c',
         'on-primary': '#ffffff',
-        'primary-container': '#0055ff',
-        'on-primary-container': '#e3e6ff',
-        'inverse-primary': '#b6c4ff',
-        'primary-fixed': '#dce1ff',
-        'primary-fixed-dim': '#b6c4ff',
-        'on-primary-fixed': '#001551',
-        'on-primary-fixed-variant': '#0039b3',
+        'primary-container': '#000080',
+        'on-primary-container': '#777eea',
+        'inverse-primary': '#bfc2ff',
+        'primary-fixed': '#e0e0ff',
+        'primary-fixed-dim': '#bfc2ff',
+        'on-primary-fixed': '#00006e',
+        'on-primary-fixed-variant': '#3239a3',
 
-        secondary: '#5f5e5e',
+        /* secondary */
+        secondary: '#585b85',
         'on-secondary': '#ffffff',
-        'secondary-container': '#e5e2e1',
-        'on-secondary-container': '#656464',
-        'secondary-fixed': '#e5e2e1',
-        'secondary-fixed-dim': '#c8c6c5',
-        'on-secondary-fixed': '#1c1b1b',
-        'on-secondary-fixed-variant': '#474646',
+        'secondary-container': '#cccefe',
+        'on-secondary-container': '#545680',
+        'secondary-fixed': '#e0e0ff',
+        'secondary-fixed-dim': '#c1c3f3',
+        'on-secondary-fixed': '#15173d',
+        'on-secondary-fixed-variant': '#41436c',
 
-        tertiary: '#505050',
+        /* tertiary */
+        tertiary: '#220000',
         'on-tertiary': '#ffffff',
-        'tertiary-container': '#686868',
-        'on-tertiary-container': '#e9e8e7',
-        'tertiary-fixed': '#e4e2e2',
-        'tertiary-fixed-dim': '#c7c6c6',
-        'on-tertiary-fixed': '#1b1c1c',
-        'on-tertiary-fixed-variant': '#464747',
+        'tertiary-container': '#4d0000',
+        'on-tertiary-container': '#d96756',
+        'tertiary-fixed': '#ffdad4',
+        'tertiary-fixed-dim': '#ffb4a8',
+        'on-tertiary-fixed': '#410000',
+        'on-tertiary-fixed-variant': '#82271c',
 
+        /* error */
         error: '#ba1a1a',
         'on-error': '#ffffff',
         'error-container': '#ffdad6',
         'on-error-container': '#93000a',
 
-        surface: '#faf8ff',
-        'surface-dim': '#d9d9e6',
-        'surface-bright': '#faf8ff',
+        /* surface */
+        background: '#f9fafb',
+        'on-background': '#1b1b22',
+        surface: '#f9fafb',
+        'on-surface': '#111827',
+        'surface-variant': '#e4e1eb',
+        'on-surface-variant': '#4b5563',
+        'surface-dim': '#dbd9e2',
+        'surface-bright': '#fbf8ff',
         'surface-container-lowest': '#ffffff',
-        'surface-container-low': '#f3f2ff',
-        'surface-container': '#ededfb',
-        'surface-container-high': '#e7e7f5',
-        'surface-container-highest': '#e1e1ef',
-        'surface-variant': '#e1e1ef',
-        'surface-tint': '#004dea',
-        'inverse-surface': '#2e303a',
-        'inverse-on-surface': '#f0f0fd',
+        'surface-container-low': '#f5f2fc',
+        'surface-container': '#f3f4f6',
+        'surface-container-high': '#eae7f0',
+        'surface-container-highest': '#e4e1eb',
+        'inverse-surface': '#303037',
+        'inverse-on-surface': '#f2eff9',
+        'surface-tint': '#4b53bc',
 
-        'on-surface': '#191b25',
-        'on-surface-variant': '#434656',
-        background: '#faf8ff',
-        'on-background': '#191b25',
-
-        outline: '#737688',
-        'outline-variant': '#c3c5d9',
+        /* outline */
+        outline: '#6b7280',
+        'outline-variant': '#d1d5db',
       },
-      borderRadius: {
-        DEFAULT: '0.125rem',
-        sm: '0.125rem',
-        lg: '0.25rem',
-        xl: '0.5rem',
-        full: '0.75rem',
+      fontFamily: {
+        'display-lg': ['var(--font-sora)', 'Sora', 'system-ui', 'sans-serif'],
+        'headline-md': ['var(--font-sora)', 'Sora', 'system-ui', 'sans-serif'],
+        'body-md': ['var(--font-manrope)', 'Manrope', 'system-ui', 'sans-serif'],
+        'body-lg': ['var(--font-manrope)', 'Manrope', 'system-ui', 'sans-serif'],
+        'label-mono': ['var(--font-mono)', 'JetBrains Mono', 'ui-monospace', 'monospace'],
+        'display-lg-mobile': ['var(--font-sora)', 'Sora', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['72px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'headline-md': ['32px', { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '600' }],
+        'body-md': ['16px', { lineHeight: '1.8', letterSpacing: '0', fontWeight: '400' }],
+        'body-lg': ['18px', { lineHeight: '1.8', letterSpacing: '0', fontWeight: '400' }],
+        'label-mono': ['14px', { lineHeight: '1.2', letterSpacing: '0.05em', fontWeight: '500' }],
+        'display-lg-mobile': ['40px', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' }],
       },
       spacing: {
-        unit: '4px',
-        'stack-sm': '8px',
-        'stack-md': '16px',
-        'stack-lg': '32px',
-        gutter: '24px',
-        'margin-mobile': '16px',
-        'margin-desktop': '48px',
-        'section-gap': '80px',
         'container-max': '1280px',
+        'gutter': '24px',
+        'margin-mobile': '20px',
+        'stack-gap': '32px',
+        'margin-desktop': '64px',
+        'section-gap': '120px',
       },
       maxWidth: {
         'container-max': '1280px',
       },
-      fontFamily: {
-        'display-xl': ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        'headline-lg': ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        'headline-lg-mobile': ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        'metric-huge': ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        'body-lg': ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        'body-md': ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        'label-caps': ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-      },
-      fontSize: {
-        'display-xl': ['72px', { lineHeight: '1.0', letterSpacing: '-0.04em', fontWeight: '600' }],
-        'headline-lg': ['40px', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '600' }],
-        'headline-lg-mobile': ['32px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '600' }],
-        'metric-huge': ['48px', { lineHeight: '1.0', letterSpacing: '-0.02em', fontWeight: '500' }],
-        'body-lg': ['18px', { lineHeight: '1.6', letterSpacing: '-0.01em', fontWeight: '400' }],
-        'body-md': ['15px', { lineHeight: '1.5', letterSpacing: '0', fontWeight: '400' }],
-        'label-caps': ['11px', { lineHeight: '1.0', letterSpacing: '0.08em', fontWeight: '600' }],
+      borderRadius: {
+        DEFAULT: '0.125rem',
+        lg: '0.25rem',
+        xl: '0.5rem',
+        full: '0.75rem',
       },
       keyframes: {
         'fade-in-up': {

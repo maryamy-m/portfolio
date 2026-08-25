@@ -1,15 +1,13 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Sora, Manrope, JetBrains_Mono } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { identity, site, ICON_FONT_HREF } from '@/lib/site'
 import './globals.css'
 
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
+const sora = Sora({ subsets: ['latin'], display: 'swap', variable: '--font-sora' })
+const manrope = Manrope({ subsets: ['latin'], display: 'swap', variable: '--font-manrope' })
+const mono = JetBrains_Mono({ subsets: ['latin'], display: 'swap', variable: '--font-mono' })
 
 export const metadata: Metadata = {
   metadataBase: new URL(identity.siteUrl),
@@ -27,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${sora.variable} ${manrope.variable} ${mono.variable}`}>
       <head>
         {/* Subsetted to only the icons this site uses — see ICONS in lib/site.ts */}
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -35,9 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-background font-body-md text-body-md text-on-background antialiased">
         <Header />
-        {/* overflow-x-clip (not hidden) contains the decorative blobs that sit past the
+        {/* overflow-x-clip (not hidden) contains decorative elements that sit past the
             right edge on narrow screens, without creating a scroll container —
-            which would break the About page's sticky heading. */}
+            which would break any sticky positioning inside. */}
         <main className="w-full pt-20 bg-background overflow-x-clip">{children}</main>
         <Footer />
       </body>
