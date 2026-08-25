@@ -25,12 +25,6 @@ export default function Metrics({ items, path }: { items: readonly Metric[]; pat
           <div className="font-display-lg text-primary flex items-baseline z-10 mb-2 gap-1">
             {m.prefix && <Ed p={`${path}.${i}.prefix`} className="text-3xl font-bold" />}
             <Ed p={`${path}.${i}.value`} className="text-[64px] font-display-lg leading-none" />
-            {'arrowTo' in m && m.arrowTo !== undefined && (
-              <>
-                <span className="msym text-[32px] text-primary self-center">arrow_right_alt</span>
-                <Ed p={`${path}.${i}.arrowTo`} className="text-[64px] font-display-lg leading-none" />
-              </>
-            )}
             {m.suffix && <Ed p={`${path}.${i}.suffix`} className="text-3xl font-bold" />}
           </div>
           <Ed

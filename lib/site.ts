@@ -32,13 +32,12 @@ export function channelValue(key: string): { label: string; href: string } {
  */
 export const ICONS = [
   'arrow_forward',
-  'arrow_right_alt',
   'attach_money',
+  'calendar_month',
   'chat',
   'close',
   'emoji_events',
   'groups',
-  'handshake',
   'link',
   'mail',
   'menu',

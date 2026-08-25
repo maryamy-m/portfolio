@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { site } from '@/lib/site'
 import Metrics from '@/components/Metrics'
 import CaseGrid from '@/components/CaseGrid'
-import HeroFrame from '@/components/HeroFrame'
 import Ed from '@/components/cms/Ed'
 import EdImage from '@/components/cms/EdImage'
 
@@ -12,9 +11,9 @@ export default function HomePage() {
   return (
     <div className="flex flex-col w-full">
       {/* Hero */}
-      <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pb-stack-gap pt-20">
+      <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pb-6 pt-10 lg:pt-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
-          <div className="lg:col-span-6 flex flex-col justify-center order-2 lg:order-1 z-10">
+          <div className="lg:col-span-6 flex flex-col justify-center z-10">
             <Ed
               as="h1"
               p="home.hero.headline"
@@ -49,9 +48,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 lg:col-start-8 relative order-1 lg:order-2 mt-stack-gap lg:mt-0">
-            <HeroFrame />
-            <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-container-high">
+          <div className="lg:col-span-5 lg:col-start-8 relative mt-stack-gap lg:mt-0">
+            <div className="relative w-full aspect-[4/5] max-h-[58vh] rounded-lg overflow-hidden bg-surface-container-high">
               <EdImage
                 p="home.hero.image"
                 altPath="home.hero.imageAlt"
@@ -78,14 +76,17 @@ export default function HomePage() {
       </section>
 
       {/* Metrics */}
-      <section className="w-full py-stack-gap relative overflow-hidden mt-stack-gap">
+      <section className="w-full py-stack-gap relative overflow-hidden">
         <div className="max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop relative z-10">
           <Metrics items={metrics} path="home.metrics" />
         </div>
       </section>
 
       {/* Selected work */}
-      <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pt-8 pb-stack-gap">
+      <section
+        id="selected-work"
+        className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pt-8 pb-stack-gap scroll-mt-24"
+      >
         <div className="flex items-center gap-6 mb-10">
           <Ed
             p="home.selectedWork.label"

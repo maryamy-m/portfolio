@@ -2,28 +2,25 @@
   "_readme": "Every piece of text, every number, every link on the site comes from here. Nothing else needs touching. You can edit all of it without opening this file: sign in at the editor URL (kept in the CMS_PATH environment variable) and click any text or picture on the live site. Pictures can also be replaced by dropping a new file in /public/images and pointing the path here at it. After editing run `npm run dev` to preview, or push to deploy.",
   "identity": {
     "name": "Maryam Begzada",
-    "siteUrl": "https://portfolio-maryamyy2024-6820.vercel.app",
+    "siteUrl": "https://begzada.vercel.app",
     "shortName": "Maryam",
     "role": "GTM · Strategy · Operations · Partnerships",
     "volume": "Portfolio · Vol. 01 · 2026",
     "location": "Vancouver, BC",
     "locationCode": "LOC: YVR // LAT 49.2827 // LNG -123.1207",
-    "email": "hello@example.com",
+    "email": "maryam.ventures247@gmail.com",
     "phone": "+1 (555) 012 3456",
     "phoneHref": "tel:+15550123456",
-    "linkedin": "https://www.linkedin.com/in/profile",
-    "linkedinLabel": "LinkedIn /in/profile",
-    "resumeUrl": "/resume.pdf",
+    "linkedin": "https://www.linkedin.com/in/maryambegzada/",
+    "linkedinLabel": "LinkedIn /in/maryambegzada",
+    "resumeUrl": "",
     "logo": "/images/logo.jpg",
     "avatar": "/images/portrait-c9b8ff76.jpg",
     "availability": "Full-time & Advisory",
-    "responseTime": "Within 24 hours"
+    "responseTime": "Within 24 hours",
+    "wordmark": "Maryam Begzada"
   },
   "nav": [
-    {
-      "label": "Work",
-      "href": "/work"
-    },
     {
       "label": "About",
       "href": "/about"
@@ -63,7 +60,7 @@
       },
       "ctaPrimary": {
         "label": "View Selected Work",
-        "href": "/work"
+        "href": "#selected-work"
       },
       "ctaSecondary": {
         "label": "Let's Build & Solve Problems",
@@ -84,11 +81,10 @@
       },
       {
         "prefix": "",
-        "value": 0,
-        "arrowTo": 1,
-        "suffix": "",
-        "label": "First Partnership & Grant Secured",
-        "icon": "handshake"
+        "value": 1,
+        "suffix": "st",
+        "label": "Montreal Tech Week",
+        "icon": "calendar_month"
       },
       {
         "prefix": "",
@@ -139,60 +135,13 @@
           "id": "validation",
           "title": "200+ Customer Discovery Interviews. 10+ Investor Pitches.",
           "category": "Founder, Melliora",
-          "image": "/images/work-case-04.jpg",
-          "imageAlt": "Fundraising and validation case study",
+          "image": "/images/melliora-booth-b09c471a.jpg",
+          "imageAlt": "The Melliora team at their demo-day booth",
           "span": "wide",
           "detail": "A healthtech idea addressing blood glucose spikes had a real problem but no validated path to market. I ran 200+ customer discovery interviews, converted the findings into a B2B/B2C go-to-market strategy, and closed clinical and vendor partnerships in a highly regulated category, while building the financial model and pitching at demo day."
         }
       ]
     }
-  },
-  "work": {
-    "meta": {
-      "title": "Work",
-      "description": "Selected work in GTM strategy, crisis operations and partnerships."
-    },
-    "hero": {
-      "headline": "I turn ambiguity into traction through persistence, work, and partnerships.",
-      "body": [
-        "Operating in environments with high uncertainty requires a specific mindset: the ability to process complex variables, identify the critical path, and execute without waiting for perfect information.",
-        "Whether it's structuring a 0-to-1 go-to-market plan, leading cross-functional teams under pressure, or securing vital early-stage capital, my focus is always on building the system that makes the outcome repeatable."
-      ],
-      "image": "/images/portrait.jpg",
-      "imageAlt": "Portrait of Maryam Begzada"
-    },
-    "metrics": [
-      {
-        "prefix": "",
-        "value": 200,
-        "suffix": "+",
-        "label": "Customer Discovery Conversations",
-        "icon": "chat"
-      },
-      {
-        "prefix": "$",
-        "value": 60,
-        "suffix": "K",
-        "label": "Capital Raised & Managed",
-        "icon": "attach_money"
-      },
-      {
-        "prefix": "",
-        "value": 0,
-        "arrowTo": 1,
-        "suffix": "",
-        "label": "First Partnership & Grant Secured",
-        "icon": "handshake"
-      },
-      {
-        "prefix": "",
-        "value": 1200,
-        "suffix": "+",
-        "label": "Founders & Execs Engaged",
-        "icon": "groups"
-      }
-    ],
-    "sectionLabel": "Selected Work"
   },
   "about": {
     "meta": {
@@ -231,20 +180,13 @@
       "label": "02 / Me in the Wild",
       "title": "Sauder School of Business Brand Campaign",
       "body": "Led the casting and production of the university's top-performing promotional campaign. I modeled in it too!",
-      "image": "/images/home-keynote.jpg",
-      "imageAlt": "UBC brand campaign",
-      "_note": "PLACEHOLDER image — needs a real still from the UBC campaign."
+      "image": "/images/campaign-team-fb78c5a3.jpg",
+      "imageAlt": "Sauder School of Business brand campaign shoot",
+      "videoUrl": "https://www.youtube.com/watch?v=0Ldl-QUZXEE"
     },
     "timeline": {
       "label": "03 / Career Timeline",
-      "_note": "PLACEHOLDER — these three roles came from the Stitch mockup and are not real. Replace before launch.",
       "items": [
-        {
-          "period": "2021 (Sep) – 2025 (Aug)",
-          "role": "Marketing & Branding Specialist",
-          "org": "University of British Columbia, Vancouver, BC",
-          "body": "Designed and developed 10 key university department websites and ran social media campaigns, creating graphics and content across LinkedIn, Meta, and X."
-        },
         {
           "period": "2025 (Sep) – 2026 (May)",
           "role": "Event & Community Lead",
@@ -255,7 +197,13 @@
           "period": "2025 (Jan) – 2026 (Jul)",
           "role": "Investment Advisor",
           "org": "Independent Initiative, Nationwide, CA",
-          "body": "dentified a financial literacy gap among students and built an advisory initiative from scratch, guiding clients on investment strategy, tax efficiency, and long-term wealth building. Advised on diversified, risk-balanced portfolios across US, Canadian, developed, and emerging markets."
+          "body": "Identified a financial literacy gap among students and built an advisory initiative from scratch, guiding clients on investment strategy, tax efficiency, and long-term wealth building. Advised on diversified, risk-balanced portfolios across US, Canadian, developed, and emerging markets."
+        },
+        {
+          "period": "2021 (Sep) – 2025 (Aug)",
+          "role": "Marketing & Branding Specialist",
+          "org": "University of British Columbia, Vancouver, BC",
+          "body": "Designed and developed 10 key university department websites and ran social media campaigns, creating graphics and content across LinkedIn, Meta, and X."
         }
       ]
     },
@@ -284,12 +232,13 @@
   "contact": {
     "meta": {
       "title": "Contact",
-      "description": "Open to full-time roles and strategic advisory."
+      "description": "Open to full-time roles in GTM, strategy, and operations, and strategic advisory work in parallel."
     },
     "hero": {
       "eyebrow": "Connect",
       "headline": "Let's build and solve problems.",
-      "body": "Open to full-time roles and strategic advisory."
+      "body": "Open to full-time roles in GTM, strategy, and operations, and strategic advisory work in parallel.",
+      "bodySupporting": "I'm drawn to early-stage companies where the path isn't obvious yet: founding GTM hire, Head of Strategy, Chief of Staff, or operations lead, where the job is building the function from scratch."
     },
     "aside": [
       {
@@ -312,11 +261,6 @@
         "value": "Full-time & Advisory",
         "sub": "Currently taking enquiries"
       }
-    ],
-    "cta": {
-      "headline": "Start a conversation.",
-      "body": "Whether it's a structural challenge or a new venture, let's explore how we can align our expertise.",
-      "ctaLabel": "Send a message"
-    }
+    ]
   }
 }

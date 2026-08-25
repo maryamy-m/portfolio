@@ -3,7 +3,7 @@ import { site } from '@/lib/site'
 import Ed from '@/components/cms/Ed'
 import EdImage from '@/components/cms/EdImage'
 
-const { principles, timeline, education, meta } = site.about
+const { principles, wild, timeline, education, meta } = site.about
 
 export const metadata: Metadata = {
   title: meta.title,
@@ -56,7 +56,14 @@ export default function AboutPage() {
       <section className="w-full max-w-container-max mx-auto px-margin-mobile lg:px-margin-desktop pb-stack-gap">
         <SectionLabel p="about.wild.label" />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
-          <div className="lg:col-span-7 relative w-full aspect-video rounded-xl overflow-hidden bg-surface-container-high group">
+          {/* The play button used to be decoration — it now opens about.wild.videoUrl. */}
+          <a
+            href={wild.videoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Watch: ${wild.title}`}
+            className="lg:col-span-7 relative block w-full aspect-video rounded-xl overflow-hidden bg-surface-container-high group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+          >
             <EdImage
               p="about.wild.image"
               altPath="about.wild.imageAlt"
@@ -64,11 +71,11 @@ export default function AboutPage() {
               sizes="(max-width: 1024px) 100vw, 58vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+            <div className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/30" aria-hidden="true" />
             <span className="absolute inset-0 flex items-center justify-center">
-              <span className="msym text-[64px] text-white drop-shadow-lg">play_arrow</span>
+              <span className="msym text-[64px] text-white drop-shadow-lg transition-transform group-hover:scale-110">play_arrow</span>
             </span>
-          </div>
+          </a>
           <div className="lg:col-span-5 flex flex-col">
             <Ed as="h2" p="about.wild.title" className="font-headline-md text-headline-md text-primary mb-4" />
             <Ed as="p" p="about.wild.body" className="font-body-lg text-body-lg text-on-surface-variant" />
