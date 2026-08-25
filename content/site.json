@@ -47,7 +47,7 @@
         "valueFrom": "email"
       }
     ],
-    "copyright": "© 2026 Maryam Begzada"
+    "copyright": "© Maryam Begzada 2026"
   },
   "home": {
     "meta": {
@@ -55,7 +55,7 @@
       "description": "I turn ambiguity into traction — GTM strategy, operations and partnerships."
     },
     "hero": {
-      "headline": "I! turn ambiguity into traction.",
+      "headline": "I turn ambiguity into traction.",
       "subhead": "Through persistence and partnerships",
       "inlineLink": {
         "label": "See how I operate →",
@@ -66,13 +66,13 @@
         "href": "/work"
       },
       "ctaSecondary": {
-        "label": "Get in Touch",
+        "label": "Let's Build & Solve Problems",
         "href": "/contact"
       },
       "image": "/images/portrait-c9b8ff76.jpg",
       "imageAlt": "Portrait of Maryam Begzada",
       "badgeRole": "GTM · Strategy · Operations",
-      "badgeLocation": "Vancouver, BC"
+      "badgeLocation": "San Francisco, ca"
     },
     "metrics": [
       {
@@ -110,21 +110,21 @@
       "cases": [
         {
           "id": "crisis-ops",
-          "title": "16 Months. 4 Borders. Zero Margin for Error.",
+          "title": "$60k Raised. 16 Months. 4 Borders. Zero Margin for Error.",
           "category": "Crisis Operations → Harvard Keynote",
           "image": "/images/work-case-01.jpg",
           "imageAlt": "Crisis operations case study",
           "span": "wide",
-          "detail": "When a government collapse cut off every standard channel out of the country overnight — no embassies, no banking access, no precedent — I built an independent evacuation operation from zero. I assembled a coalition across Harvard and UBC networks, retained immigration lawyers across four countries, and negotiated directly with border and immigration officials through constantly shifting policy, rerouting in real time whenever a path closed. The operation succeeded with $60,000 raised and zero margin for error. The experience later led to a keynote at Harvard on leadership in crisis."
+          "detail": "When Afghanistan's collapse cut off every standard channel out of the country overnight, no embassies, no banking access, no precedent, I led an independent evacuation operation from zero. I led a coalition across Harvard and the University of British Columbia networks, retained immigration lawyers across four countries, and negotiated directly with diplomatic and political officials through constantly shifting policy, rerouting in real time whenever a path closed. The operation succeeded with $60,000 raised and zero margin for error, leading to a family's safety and relocation in North America. The experience later led to a keynote at Harvard on leadership in crisis."
         },
         {
           "id": "gtm-launch",
           "title": "4 Months. Zero Pipeline. First Place.",
-          "category": "GTM Strategy Execution",
+          "category": "0 → 1 GTM → First Partnership Won",
           "image": "/images/work-case-02.jpg",
           "imageAlt": "GTM strategy case study",
           "span": "narrow",
-          "detail": "Built a go-to-market strategy from scratch for a new B2B SaaS product. Within four months, established a predictable lead generation engine, secured the first 10 enterprise customers, and won 'Best New Product' at a major industry conference."
+          "detail": "An early-stage AI infrastructure startup had a strong technical product and zero go-to-market motion. I identified target buyers, built the positioning, and worked directly with the founder and engineering team to translate deep technical work into language operators, partners, and investors could act on. In four months, we secured the company's first partnership, its first grant, and won 1st Prize at Montreal Tech Week, the earliest proof points that turn a strong product into a fundable company."
         },
         {
           "id": "rebrand",
@@ -133,16 +133,16 @@
           "image": "/images/work-case-03.jpg",
           "imageAlt": "Brand positioning case study",
           "span": "narrow",
-          "detail": "Directed the comprehensive rebranding and repositioning of a legacy tech firm. Developed a clear, actionable 12-month marketing roadmap that re-engaged lost accounts and increased inbound qualified leads by 45%."
+          "detail": "A solo-founder consultancy had real differentiation, hands-on accountability most competitors couldn't match, but none of it showed up in how the market saw the business. I rebuilt the value proposition and messaging from the ground up, restructured the website and digital storytelling, and built a phased visibility roadmap across press, podcasts, and AI search optimization. The result: a brand whose market presence finally matched what made it worth choosing."
         },
         {
           "id": "validation",
-          "title": "150+ Interviews. 10+ Investor Pitches. One Validated Strategy.",
-          "category": "Fundraising & Validation",
+          "title": "200+ Customer Discovery Interviews. 10+ Investor Pitches.",
+          "category": "Founder, Melliora",
           "image": "/images/work-case-04.jpg",
           "imageAlt": "Fundraising and validation case study",
           "span": "wide",
-          "detail": "Conducted extensive customer discovery to pivot a struggling startup's core offering. The resulting data-backed strategy secured $60K in non-dilutive grant funding and successfully closed an early-stage seed round."
+          "detail": "A healthtech idea addressing blood glucose spikes had a real problem but no validated path to market. I ran 200+ customer discovery interviews, converted the findings into a B2B/B2C go-to-market strategy, and closed clinical and vendor partnerships in a highly regulated category, while building the financial model and pitching at demo day."
         }
       ]
     }
