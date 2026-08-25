@@ -58,10 +58,6 @@ export default function HomePage() {
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover"
               />
-              <div
-                className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-surface to-transparent"
-                aria-hidden="true"
-              />
               <Ed
                 p="home.hero.badgeRole"
                 className="absolute top-4 left-4 font-label-mono text-label-mono text-on-primary uppercase tracking-widest bg-primary px-4 py-2 rounded-full shadow-md z-10"
