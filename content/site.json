@@ -17,7 +17,7 @@
     "logo": "/images/logo.jpg",
     "avatar": "/images/portrait-c9b8ff76.jpg",
     "availability": "Full-time & Advisory",
-    "responseTime": "Within 24 hours",
+    "responseTime": "Within 1 hour",
     "wordmark": "Maryam Begzada"
   },
   "nav": [
@@ -244,7 +244,7 @@
       {
         "label": "Direct",
         "valueFrom": "email",
-        "sub": "Usually replies within 24h"
+        "sub": "Usually replies within 1h"
       },
       {
         "label": "Network",
