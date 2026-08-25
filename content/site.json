@@ -240,29 +240,29 @@
       "_note": "PLACEHOLDER — these three roles came from the Stitch mockup and are not real. Replace before launch.",
       "items": [
         {
-          "period": "2021 — Present",
-          "role": "Director of Production & Strategy",
-          "org": "Global Creative Agency",
-          "body": "Overseeing end-to-end production pipelines for Fortune 500 clients. Directed cross-functional teams of 30+ spanning creative, engineering, and data analytics."
+          "period": "2021 (Sep) – 2025 (Aug)",
+          "role": "Marketing & Branding Specialist",
+          "org": "University of British Columbia, Vancouver, BC",
+          "body": "Designed and developed 10 key university department websites and ran social media campaigns, creating graphics and content across LinkedIn, Meta, and X."
         },
         {
-          "period": "2018 — 2021",
-          "role": "Senior Venture Designer",
-          "org": "Innovation Labs Inc.",
-          "body": "Led zero-to-one product initiatives for early-stage startups. Conducted deep-dive market analysis and synthesized complex user data into actionable product roadmaps."
+          "period": "2025 (Sep) – 2026 (May)",
+          "role": "Event & Community Lead",
+          "org": "Her Wealth Summit & WNorth, Vancouver, BC",
+          "body": "Ran the room for 1,200+ founders, executives, and finance professionals across multiple conferences, handling DJ work, speaker sessions, registration, and full event setup and teardown. Created a warm, engaging atmosphere and actively connected attendees around shared interests, several of which turned into ongoing partnerships."
         },
         {
-          "period": "2015 — 2018",
-          "role": "Data Analyst & Operations Lead",
-          "org": "UBC Strategy Office",
-          "body": "Spearheaded data collection and visualization for institutional strategic planning. Built predictive models using R and Stata to forecast enrollment trends and resource allocation."
+          "period": "2025 (Jan) – 2026 (Jul)",
+          "role": "Investment Advisor",
+          "org": "Independent Initiative, Nationwide, CA",
+          "body": "dentified a financial literacy gap among students and built an advisory initiative from scratch, guiding clients on investment strategy, tax efficiency, and long-term wealth building. Advised on diversified, risk-balanced portfolios across US, Canadian, developed, and emerging markets."
         }
       ]
     },
     "education": {
       "label": "04 / Education",
       "degree": "B.A. Political Science & Commerce",
-      "school": "The university of british columbia (UBC)",
+      "school": "The university of british columbia",
       "focusLabel": "Focus Areas",
       "focus": [
         "Venture Designs",
@@ -276,7 +276,7 @@
         },
         {
           "icon": "emoji_events",
-          "label": "6 competitive awards"
+          "label": "6 prestigious awards"
         }
       ]
     }
